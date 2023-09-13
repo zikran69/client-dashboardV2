@@ -5,7 +5,26 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      transitionProperty: {
+        'display': 'display',
+      },
+      colors: {
+        'primary-blue': '#0f172a',
+        'secondary-blue': '#78aed8',
+        'primary-gray': '#eff3f6',
+        'secondary-gray': '#b4b6b9',
+        'primary-orange': '#fa9b14',
+        'hover-blue': '#2563EB',
+        'hover-green': '#16A34A',
+        'hover-red': '#DC2626',
+        'hover-yellow': '#CA8A04'
+      },
+      fontFamily: {
+        roboto: ['Roboto', 'sans-serif'],
+        raleway: ['Raleway', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }
