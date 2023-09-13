@@ -1,10 +1,11 @@
-
+import { BrowserRouter } from "react-router-dom"
+import Router from "./routers"
 
 function App() {
   return (
-    <div className="text-4xl p-32">
-      ini App
-    </div>
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
   )
 }
 
