@@ -1,6 +1,6 @@
 import { Navigate, Outlet } from "react-router-dom";
 
-export default function PrivateRouter(){
+export default function PublicRouter(){
     return(
         <div>
             <Outlet />
