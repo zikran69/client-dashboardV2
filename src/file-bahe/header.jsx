@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom"
 
 export default function Header(){
-    const [popUp, setPopup] = useState("bg-primary-blue h-24 w-full flex justify-between min-w-[340px] m");
+    const [popUp, setPopup] = useState("bg-primary-blue h-24 w-full flex justify-between min-w-[340px]");
     const [benar, setBenar] = useState(true);
         
     const klik = (e)=>{
