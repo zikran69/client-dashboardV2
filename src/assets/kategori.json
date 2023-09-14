@@ -4,7 +4,7 @@
         "kategori": "Junior Suite",
         "harga": "$1000/night",
         "gambar": "https://hips.hearstapps.com/hmg-prod/images/screen-shot-2019-09-29-at-14-15-30-1569762949.jpg?resize=980:*",
-        "status": "w-[340px] h-[550px] font-raleway border drop-shadow-xl bg-white m-4"
+        "aktif": false
         
     },
     {
@@ -12,13 +12,13 @@
         "kategori": "Executive Suite",
         "harga": "$2000/night",
         "gambar": "https://hips.hearstapps.com/hmg-prod/images/will-pryce-tsj-151648-2-fl-double-double-web-1664266781.jpg?crop=1xw:1xh;center,top&resize=980:*",
-        "status": "h-[550px] lg:h-[560px] w-[340px] font-raleway border drop-shadow-xl bg-white m-4"
+        "aktif": true
     },
     {
         "id": "3",
         "kategori": "Super Delux",
         "harga": "$3000/night",
         "gambar": "https://hips.hearstapps.com/hmg-prod/images/the-tokyo-edition-toranomon-rooms-high-res-credit-nikolas-koenig20-5-64faf23148f42.jpg?resize=980:*",
-        "status": "w-[340px] h-[550px] font-raleway border drop-shadow-xl bg-white m-4"
+        "aktif": false
     }
 ]

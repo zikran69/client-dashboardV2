@@ -1,6 +1,16 @@
-export default function Card({kategori, harga, gambar, status='w-[340px] h-[550px] font-raleway border drop-shadow-xl bg-white m-4'}){
+import { useEffect, useState } from "react"
+
+export default function Card({kategori, harga, gambar, aktif}){
+    const [popUp, setPopUp] = useState();
+    useEffect(()=>{
+        if(aktif){
+            setPopUp("lg:h-[570px] h-[550px] w-[340px] font-raleway border drop-shadow-xl bg-white m-4");
+        }
+        if(!aktif)setPopUp("h-[550px] w-[340px] font-raleway border drop-shadow-xl bg-white m-4");
+    }, []);
+    
     return(
-        <div className={status}>
+        <div className={popUp}>
             <img src={gambar} className="h-[250px] w-[350px]"/>
             <div className='bg-primary-orange w-fit mt-[-12px] ml-4 px-4 text-center text-lg text-white absolute'>{harga}</div>
             <div className='px-4 mt-8'>
@@ -32,7 +42,7 @@ export default function Card({kategori, harga, gambar, status='w-[340px] h-[550p
                 </div>
                 <p className='text-zinc-600'>Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
                 <div className='uppercase font-semibold text-xl flex justify-center items-center py-6'>
-                    <button className='w-[175px] bg-primary-orange text-white text-center py-1'>
+                    <button className='uppercase w-[175px] bg-primary-orange text-white text-center py-1'>
                         <p>view</p>
                         <p>detail</p>
                     </button>
