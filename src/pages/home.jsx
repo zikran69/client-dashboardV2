@@ -54,12 +54,12 @@ export default function Home(){
                         </div>
                     </div>
                     <div id='menu' className="h-16 w-fit md:w-[500px] uppercase text-white text-xs flex items-center justify-start gap-3 max-md:hidden md:text-sm max-md:absolute left-5 top-20">
-                        <a onClick={popUpOnOff} href='' className="mr-8 hover:text-primary-orange">home</a>
-                        <a onClick={popUpOnOff} href='' className="mr-8 hover:text-primary-orange">about</a>
-                        <a onClick={popUpOnOff} href='' className="mr-8 hover:text-primary-orange">service</a>
+                        <a onClick={popUpOnOff} className="mr-8 hover:text-primary-orange">home</a>
+                        <a onClick={popUpOnOff} className="mr-8 hover:text-primary-orange">about</a>
+                        <a onClick={popUpOnOff} className="mr-8 hover:text-primary-orange">service</a>
                         <a onClick={popUpOnOff} href='#rooms' className="mr-8 hover:text-primary-orange">rooms</a>
-                        <a onClick={popUpOnOff} href='' className="mr-8 hover:text-primary-orange">pages</a>
-                        <a onClick={popUpOnOff} href='' className="mr-8 hover:text-primary-orange">contact</a>
+                        <a onClick={popUpOnOff} className="mr-8 hover:text-primary-orange">pages</a>
+                        <a onClick={popUpOnOff} className="mr-8 hover:text-primary-orange">contact</a>
                     </div>
                 </div>     
                 <button onClick={popUpOnOff} className="md:hidden mx-12 h-fit py-8">
@@ -69,17 +69,31 @@ export default function Home(){
                 </button>      
             </div>
             {/* bagian content disini  */}
-            <div onClick={popUpOff} className="z-10 mt-24">
-                <div id="rooms" className="m-4 p-4 flex justify-around flex-wrap">
-                    {
-                        kamar.map(({id, kategori, harga, gambar, aktif})=>{
-                            return(
-                                <div key={id}>
-                                    <Card kategori={kategori} harga={harga} gambar={gambar} aktif={aktif} />
-                                </div>
-                            )
-                        })
-                    }
+            <div onClick={popUpOff} className="z-10">
+                <div id="rooms" className="pt-24">
+                    <div className="font-semibold grid justify-center items-center pt-4">
+                        <div className="flex justify-center items-center text-sm">
+                            <div className="h-[2px] w-8 bg-primary-orange"></div>
+                            <span className="text-primary-orange px-4">OUR ROOMS</span>
+                            <div className="h-[2px] w-8 bg-primary-orange"></div>
+                        </div>
+                        <div className="flex justify-between items-center text-2xl md:text-3xl  w-[220px] md:w-[300px]">        
+                            <span>Explore</span>
+                            <span>Our</span>
+                            <span className="text-primary-orange">ROOMS</span>
+                        </div>
+                    </div>
+                    <div className="m-4 p-4 flex justify-around flex-wrap md:grid grid-cols-2 lg:grid-cols-3">
+                        {
+                            kamar.map(({id, kategori, harga, gambar, aktif})=>{
+                                return(
+                                    <div key={id}>
+                                        <Card kategori={kategori} harga={harga} gambar={gambar} aktif={aktif} />
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
                 </div>
             </div>
         </div>
