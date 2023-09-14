@@ -1,4 +1,4 @@
-export default function Card({kategori, harga, gambar, status}){
+export default function Card({kategori, harga, gambar, status='w-[340px] h-[550px] font-raleway border drop-shadow-xl bg-white m-4'}){
     return(
         <div className={status}>
             <img src={gambar} className="h-[250px] w-[350px]"/>
