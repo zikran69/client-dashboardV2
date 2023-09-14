@@ -1,15 +1,38 @@
 import { Link } from "react-router-dom";
-import bed from '../assets/bed-room.json'
+import { useState } from "react";
+
+import kategori from '../assets/kategori.json'
 import Card from "../component/card";
 
 export default function Home(){
-    const bedRoom = bed;
+
+    const [popUp, setPopup] = useState("bg-primary-blue h-24 w-full flex justify-between min-w-[340px] m");
+    const [benar, setBenar] = useState(true);    
+    // benar artinya popUpnya tidak muncul 
+    const klik = (e)=>{
+        const menu = document.getElementById('menu');
+        menu.classList.toggle('max-md:hidden');
+        menu.classList.toggle('max-md:grid');
+        if(benar){
+            setPopup("bg-primary-blue h-64 md:h-24 flex justify-between min-w-[340px]");
+            setBenar(false);
+        }
+        if(!benar){
+            setPopup("bg-primary-blue h-24 w-full flex justify-between min-w-[340px] m");
+            setBenar(true);
+        }
+    }
+    const klikLagi = ()=>{
+        if(!benar) klik();
+    }
+    
+    const kamar = kategori;
     return(
         <div className="font-roboto h-screen">
-            <div className="bg-primary-blue h-24 flex justify-between">
-                <div className="text-4xl font-semibold text-primary-orange w-[25%] flex items-center justify-center">MYHOTEL</div>  
+            <div className={popUp}>
+                <div className="text-4xl font-semibold text-primary-orange w-[25%] min-w-[200px] max-h-24 flex items-center justify-center">MYHOTEL</div>  
                 <div className="w-[75%] flex-row justify-center items-center">
-                    <div className="h-8 bg-white flex items-center justify-between px-6">
+                    <div className="h-8 bg-white flex items-center justify-between px-6 max-md:hidden">
                         <div className="flex justify-around text-xs">   
                             <div className="flex items-center mr-2">
                                 <i className="ri-mail-line text-primary-orange"></i>     
@@ -28,7 +51,7 @@ export default function Home(){
                             <i className="ri-youtube-line text-primary-orange"></i>
                         </div>
                     </div>
-                    <div className="h-16 w-[500px] uppercase text-white text-sm flex items-center justify-start">
+                    <div id='menu' className="h-16 w-fit md:w-[500px] uppercase text-white text-xs flex items-center justify-start gap-3 max-md:hidden md:text-sm max-md:absolute left-5 top-20">
                         <Link to='' className="mr-8 hover:text-primary-orange text-primary-orange">home</Link>
                         <Link to='' className="mr-8 hover:text-primary-orange">about</Link>
                         <Link to='' className="mr-8 hover:text-primary-orange">service</Link>
@@ -36,12 +59,25 @@ export default function Home(){
                         <Link to='' className="mr-8 hover:text-primary-orange">pages</Link>
                         <Link to='' className="mr-8 hover:text-primary-orange">contact</Link>
                     </div>
-                </div>            
+                </div>     
+                <button onClick={klik} className="md:hidden mx-12 h-fit py-8">
+                    <svg className="w-6 h-6 text-white hover:text-primary-orange" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15"/>
+                    </svg>
+                </button>      
             </div>
-            <div className="m-4 p-4 flex justify-around flex-wrap">
-                <Card kategori='Junior Suite' harga='$1000/night' gambar={bedRoom[0].image} />
-                <Card kategori='Executive Suite' harga='$2000/night' gambar={bedRoom[1].image} aktif='w-[340px] h-[550px] lg:h-[560px] font-raleway border drop-shadow-xl bg-white m-4'/>
-                <Card kategori='Super Delux' harga='$3000/night' gambar={bedRoom[2].image} />
+            <div onClick={klikLagi}>
+                <div className="m-4 p-4 flex justify-around flex-wrap">
+                    {
+                        kamar.map(({id, kategori, harga, gambar, aktif})=>{
+                            return(
+                                <div key={id}>
+                                    <Card kategori={kategori} harga={harga} gambar={gambar} aktif={aktif} />
+                                </div>
+                            )
+                        })
+                    }
+                </div>
             </div>
         </div>
     )
