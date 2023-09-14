@@ -4,7 +4,7 @@ export default function Card({kategori, harga, gambar, aktif}){
     const [popUp, setPopUp] = useState();
     useEffect(()=>{
         if(aktif){
-            setPopUp("lg:h-[570px] h-[550px] w-[340px] font-raleway border drop-shadow-xl bg-white m-4");
+            setPopUp("lg:h-[570px] h-[550px] w-[340px] font-raleway border lg:drop-shadow-2xl drop-shadow-xl bg-white m-4");
         }
         if(!aktif)setPopUp("h-[550px] w-[340px] font-raleway border drop-shadow-xl bg-white m-4");
     }, []);
@@ -41,14 +41,12 @@ export default function Card({kategori, harga, gambar, aktif}){
                     </div>
                 </div>
                 <p className='text-zinc-600'>Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
-                <div className='uppercase font-semibold text-xl flex justify-center items-center py-6'>
-                    <button className='uppercase w-[175px] bg-primary-orange text-white text-center py-1'>
-                        <p>view</p>
-                        <p>detail</p>
+                <div className='text-sm md:text-xl flex md:justify-center justify-around items-center py-6'>
+                    <button className='uppercase md:w-[175px] bg-primary-orange text-white text-center py-1 max-md:px-4'>
+                        <p>view detail</p>
                     </button>
-                    <button className='uppercase w-[175px] bg-primary-blue text-white text-center py-1'>
-                        <p>book</p>
-                        <p>now</p>
+                    <button className='uppercase md:w-[175px] bg-primary-blue text-white text-center py-1 max-md:px-4'>
+                        <p>book now</p>
                     </button>
                 </div>
             </div>
