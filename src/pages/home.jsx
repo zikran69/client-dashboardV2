@@ -40,7 +40,7 @@ export default function Home(){
             </div>
             <div className="m-4 p-4 flex justify-around flex-wrap">
                 <Card kategori='Junior Suite' harga='$1000/night' gambar={bedRoom[0].image} />
-                <Card kategori='Executive Suite' harga='$2000/night' gambar={bedRoom[1].image} />
+                <Card kategori='Executive Suite' harga='$2000/night' gambar={bedRoom[1].image} aktif='w-[340px] h-[550px] lg:h-[560px] font-raleway border drop-shadow-xl bg-white m-4'/>
                 <Card kategori='Super Delux' harga='$3000/night' gambar={bedRoom[2].image} />
             </div>
         </div>

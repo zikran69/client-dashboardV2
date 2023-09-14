@@ -1,11 +1,11 @@
-export default function Card(props){
+export default function Card({kategori, harga, gambar, aktif='w-[340px] h-[550px] font-raleway border drop-shadow-xl bg-white m-4'}){
     return(
-        <div className='w-[340px] h-[550px] font-raleway border-2 shadow-xl bg-white m-4'>
-            <img src={props.gambar} className="h-[250px] w-[350px]"/>
-            <div className='bg-primary-orange w-fit mt-[-12px] ml-4 px-4 text-center text-lg text-white absolute'>{props.harga}</div>
+        <div className={aktif}>
+            <img src={gambar} className="h-[250px] w-[350px]"/>
+            <div className='bg-primary-orange w-fit mt-[-12px] ml-4 px-4 text-center text-lg text-white absolute'>{harga}</div>
             <div className='px-4 mt-8'>
                 <div className='flex items-center justify-between'>
-                    <p className='font-roboto text-xl font-semibold'>{props.kategori}</p>
+                    <p className='font-roboto text-xl font-semibold'>{kategori}</p>
                     <p>
                         <small className="fa fa-star text-primary-orange text-lg mr-1"></small>
                         <small className="fa fa-star text-primary-orange text-lg mr-1"></small>
