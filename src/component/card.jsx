@@ -1,6 +1,6 @@
-export default function Card({kategori, harga, gambar, aktif='w-[340px] h-[550px] font-raleway border drop-shadow-xl bg-white m-4'}){
+export default function Card({kategori, harga, gambar, status}){
     return(
-        <div className={aktif}>
+        <div className={status}>
             <img src={gambar} className="h-[250px] w-[350px]"/>
             <div className='bg-primary-orange w-fit mt-[-12px] ml-4 px-4 text-center text-lg text-white absolute'>{harga}</div>
             <div className='px-4 mt-8'>

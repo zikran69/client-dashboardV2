@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import bed from '../assets/bed-room.json'
+import kategori from '../assets/kategori.json'
 import Card from "../component/card";
 
 export default function Home(){
-    const bedRoom = bed;
+    const kamar = kategori;
     return(
         <div className="font-roboto h-screen">
             <div className="bg-primary-blue h-24 flex justify-between">
@@ -39,9 +39,15 @@ export default function Home(){
                 </div>            
             </div>
             <div className="m-4 p-4 flex justify-around flex-wrap">
-                <Card kategori='Junior Suite' harga='$1000/night' gambar={bedRoom[0].image} />
-                <Card kategori='Executive Suite' harga='$2000/night' gambar={bedRoom[1].image} aktif='w-[340px] h-[550px] lg:h-[560px] font-raleway border drop-shadow-xl bg-white m-4'/>
-                <Card kategori='Super Delux' harga='$3000/night' gambar={bedRoom[2].image} />
+                {
+                    kamar.map(({id, kategori, harga, gambar, status})=>{
+                        return(
+                            <div key={id}>
+                                <Card kategori={kategori} harga={harga} gambar={gambar} status={status} />
+                            </div>
+                        )
+                    })
+                }
             </div>
         </div>
     )
