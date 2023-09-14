@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 import kategori from '../assets/kategori.json'
@@ -6,24 +6,26 @@ import Card from "../component/card";
 
 export default function Home(){
 
-    const [popUp, setPopup] = useState("bg-primary-blue h-24 w-full flex justify-between min-w-[340px] m");
+    const navigate = useNavigate();
+
+    const [popUp, setPopup] = useState("bg-primary-blue h-24 w-screen flex justify-between min-w-[340px] fixed top-0 lef-0 z-20");
     const [benar, setBenar] = useState(true);    
     // benar artinya popUpnya tidak muncul 
-    const klik = (e)=>{
+    const popUpOnOff = (e)=>{
         const menu = document.getElementById('menu');
         menu.classList.toggle('max-md:hidden');
         menu.classList.toggle('max-md:grid');
         if(benar){
-            setPopup("bg-primary-blue h-64 md:h-24 flex justify-between min-w-[340px]");
+            setPopup("bg-primary-blue h-64 md:h-24 w-screen flex justify-between min-w-[340px] fixed top-0 lef-0 z-20");
             setBenar(false);
         }
         if(!benar){
-            setPopup("bg-primary-blue h-24 w-full flex justify-between min-w-[340px] m");
+            setPopup("bg-primary-blue h-24 w-screen flex justify-between min-w-[340px] fixed top-0 lef-0 z-20");
             setBenar(true);
         }
     }
-    const klikLagi = ()=>{
-        if(!benar) klik();
+    const popUpOff = ()=>{
+        if(!benar) popUpOnOff();
     }
     
     const kamar = kategori;
@@ -52,22 +54,23 @@ export default function Home(){
                         </div>
                     </div>
                     <div id='menu' className="h-16 w-fit md:w-[500px] uppercase text-white text-xs flex items-center justify-start gap-3 max-md:hidden md:text-sm max-md:absolute left-5 top-20">
-                        <Link to='' className="mr-8 hover:text-primary-orange text-primary-orange">home</Link>
-                        <Link to='' className="mr-8 hover:text-primary-orange">about</Link>
-                        <Link to='' className="mr-8 hover:text-primary-orange">service</Link>
-                        <Link to='' className="mr-8 hover:text-primary-orange">rooms</Link>
-                        <Link to='' className="mr-8 hover:text-primary-orange">pages</Link>
-                        <Link to='' className="mr-8 hover:text-primary-orange">contact</Link>
+                        <a onClick={popUpOnOff} href='' className="mr-8 hover:text-primary-orange">home</a>
+                        <a onClick={popUpOnOff} href='' className="mr-8 hover:text-primary-orange">about</a>
+                        <a onClick={popUpOnOff} href='' className="mr-8 hover:text-primary-orange">service</a>
+                        <a onClick={popUpOnOff} href='#rooms' className="mr-8 hover:text-primary-orange">rooms</a>
+                        <a onClick={popUpOnOff} href='' className="mr-8 hover:text-primary-orange">pages</a>
+                        <a onClick={popUpOnOff} href='' className="mr-8 hover:text-primary-orange">contact</a>
                     </div>
                 </div>     
-                <button onClick={klik} className="md:hidden mx-12 h-fit py-8">
+                <button onClick={popUpOnOff} className="md:hidden mx-12 h-fit py-8">
                     <svg className="w-6 h-6 text-white hover:text-primary-orange" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
                         <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15"/>
                     </svg>
                 </button>      
             </div>
-            <div onClick={klikLagi}>
-                <div className="m-4 p-4 flex justify-around flex-wrap">
+            {/* bagian content disini  */}
+            <div onClick={popUpOff} className="z-10 mt-24">
+                <div id="rooms" className="m-4 p-4 flex justify-around flex-wrap">
                     {
                         kamar.map(({id, kategori, harga, gambar, aktif})=>{
                             return(
