@@ -16,7 +16,7 @@ export default function Home(){
         menu.classList.toggle('max-md:hidden');
         menu.classList.toggle('max-md:grid');
         if(benar){
-            setPopup("bg-primary-blue h-64 md:h-24 w-screen flex justify-between min-w-[340px] fixed top-0 lef-0 z-20");
+            setPopup("bg-primary-blue h-72 md:h-24 w-screen flex justify-between min-w-[340px] fixed top-0 lef-0 z-20");
             setBenar(false);
         }
         if(!benar){
@@ -35,7 +35,7 @@ export default function Home(){
                 <div className="text-4xl font-semibold text-primary-orange w-[25%] min-w-[200px] max-h-24 flex items-center justify-center">MYHOTEL</div>  
                 <div className="w-[75%] flex-row justify-center items-center">
                     <div className="h-8 bg-white flex items-center justify-between px-6 max-md:hidden">
-                        <div className="font-raleway flex justify-around text-xs">   
+                        <div className="font-raleway flex justify-around text-sm">   
                             <div className="flex items-center mr-2">
                                 <i className="ri-mail-line text-primary-orange"></i>     
                                 <span className="text-secondary-gray px-2">info@myhotel.yogya.com</span>
@@ -53,13 +53,13 @@ export default function Home(){
                             <i className="ri-youtube-line text-primary-orange"></i>
                         </div>
                     </div>
-                    <div id='menu' className="h-16 w-fit md:w-[500px] uppercase text-white text-xs flex items-center justify-start gap-3 max-md:hidden md:text-sm max-md:absolute left-5 top-20">
-                        <a onClick={popUpOnOff} className="mr-8 hover:text-primary-orange">home</a>
-                        <a onClick={popUpOnOff} className="mr-8 hover:text-primary-orange">about</a>
-                        <a onClick={popUpOnOff} className="mr-8 hover:text-primary-orange">service</a>
-                        <a onClick={popUpOnOff} href='#rooms' className="mr-8 hover:text-primary-orange">rooms</a>
-                        <a onClick={popUpOnOff} className="mr-8 hover:text-primary-orange">pages</a>
-                        <a onClick={popUpOnOff} className="mr-8 hover:text-primary-orange">contact</a>
+                    <div id='menu' className="h-16 w-fit md:w-[500px] uppercase text-white text-xs flex items-center justify-start gap-4 max-md:hidden md:text-sm max-md:absolute max-md:font-raleway left-5 top-20">
+                        <a onClick={popUpOnOff} className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2">home</a>
+                        <a onClick={popUpOnOff} className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2">about</a>
+                        <a onClick={popUpOnOff} className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2">service</a>
+                        <a onClick={popUpOnOff} href='#rooms' className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2">rooms</a>
+                        <a onClick={popUpOnOff} className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2">pages</a>
+                        <a onClick={popUpOnOff} className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2">contact</a>
                     </div>
                 </div>     
                 <button onClick={popUpOnOff} className="md:hidden mx-12 h-fit py-8">
