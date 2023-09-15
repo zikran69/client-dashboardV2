@@ -1,8 +1,10 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-import kategori from '../assets/kategori.json'
-import Card from "../component/card";
+import kategori from '../assets/kategori.json';
+import Services from "../component/service-card";
+import RoomCard from "../component/room-card";
+import SubTitle from "../component/sub-title";
 
 export default function Home(){
 
@@ -56,7 +58,7 @@ export default function Home(){
                     <div id='menu' className="h-16 w-fit md:w-[500px] uppercase text-white text-xs flex items-center justify-start gap-4 max-md:hidden md:text-sm max-md:absolute max-md:font-raleway left-5 top-20">
                         <a onClick={popUpOnOff} className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2">home</a>
                         <a onClick={popUpOnOff} className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2">about</a>
-                        <a onClick={popUpOnOff} className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2">service</a>
+                        <a onClick={popUpOnOff} href="#services" className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2">service</a>
                         <a onClick={popUpOnOff} href='#rooms' className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2">rooms</a>
                         <a onClick={popUpOnOff} className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2">pages</a>
                         <a onClick={popUpOnOff} className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2">contact</a>
@@ -71,29 +73,21 @@ export default function Home(){
             {/* bagian content disini  */}
             <div onClick={popUpOff} className="z-10">
                 <div id="rooms" className="pt-24">
-                    <div className="font-semibold grid justify-center items-center pt-4">
-                        <div className="flex justify-center items-center text-sm">
-                            <div className="h-[2px] w-8 bg-primary-orange"></div>
-                            <span className="text-primary-orange px-4">OUR ROOMS</span>
-                            <div className="h-[2px] w-8 bg-primary-orange"></div>
-                        </div>
-                        <div className="flex justify-between items-center text-2xl md:text-3xl  w-[220px] md:w-[300px]">        
-                            <span>Explore</span>
-                            <span>Our</span>
-                            <span className="text-primary-orange">ROOMS</span>
-                        </div>
-                    </div>
-                    <div className="m-4 p-4 flex justify-center flex-wrap lg:grid lg:grid-cols-3">
+                    <SubTitle header='our rooms' title='rooms' />
+                    <div className="m-4 pb-4 flex justify-center flex-wrap lg:grid lg:grid-cols-3">
                         {
                             kamar.map(({id, kategori, harga, gambar, aktif})=>{
                                 return(
                                     <div key={id}>
-                                        <Card kategori={kategori} harga={harga} gambar={gambar} aktif={aktif} />
+                                        <RoomCard kategori={kategori} harga={harga} gambar={gambar} aktif={aktif} />
                                     </div>
                                 )
                             })
                         }
                     </div>
+                </div>
+                <div id="services">
+                <SubTitle header='our services' title='services' />
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-export default function Card({kategori, harga, gambar, aktif}){
+export default function RoomCard({kategori, harga, gambar, aktif}){
     const [popUp, setPopUp] = useState();
     useEffect(()=>{
         if(aktif){
