@@ -2,12 +2,13 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 import kategori from '../assets/kategori.json';
-import Services from "../component/service-card";
+import services from '../assets/services.json';
+
 import RoomCard from "../component/room-card";
+import ServiceCard from "../component/service-card";
 import SubTitle from '../component/sub-title'
 
 export default function Home(){
-
     const navigate = useNavigate();
 
     const [popUp, setPopup] = useState("bg-primary-blue h-24 w-screen flex justify-between min-w-[340px] fixed top-0 lef-0 z-20");
@@ -30,7 +31,9 @@ export default function Home(){
         if(!benar) popUpOnOff();
     }
     
-    const kamar = kategori;
+    const db_kategori = kategori;
+    const db_services = services;
+
     return(
         <div className="font-roboto h-screen">
             <div className={popUp}>
@@ -76,7 +79,7 @@ export default function Home(){
                     <SubTitle header='our rooms' title='rooms' />
                     <div className="m-4 pb-4 flex justify-center flex-wrap lg:grid lg:grid-cols-3">
                         {
-                            kamar.map(({id, kategori, harga, gambar, aktif})=>{
+                            db_kategori.map(({id, kategori, harga, gambar, aktif})=>{
                                 return(
                                     <div key={id}>
                                         <RoomCard kategori={kategori} harga={harga} gambar={gambar} aktif={aktif} />
@@ -86,9 +89,19 @@ export default function Home(){
                         }
                     </div>
                 </div>
-                <div id="services">
-                <SubTitle header='our services' title='services' />
-                <Services icon='fa fa-hotel fa-2x text-primary-orange' title='rooms' subTitle='appartment' />
+                <div id="services" className="pt-24">
+                    <SubTitle header='our services' title='services' />
+                    <div className="m-4 pb-4 flex justify-center flex-wrap lg:grid lg:grid-cols-3">
+                        {
+                            db_services.map(({id, title, subTitle, icon})=>{
+                                return(
+                                    <div key={id}>
+                                        <ServiceCard title={title} subTitle={subTitle} icon={icon} />
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
                 </div>
             </div>
         </div>

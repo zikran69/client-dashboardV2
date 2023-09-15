@@ -4,7 +4,7 @@
         "kategori": "Junior Suite",
         "harga": 1000,
         "gambar": "https://hips.hearstapps.com/hmg-prod/images/screen-shot-2019-09-29-at-14-15-30-1569762949.jpg?resize=980:*",
-        "aktif": false
+        "kategori_aktif": false
         
     },
     {
