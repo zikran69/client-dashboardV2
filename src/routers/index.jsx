@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import PublicRouter from './public-router';
 import Home from "../pages/home"
-import Card from "../component/card";
+import ServicesCard from "../component/service-card";
 
 
 export default function Router(){
@@ -9,7 +9,7 @@ export default function Router(){
         <Routes>
             <Route path="/" element={<PublicRouter />} >
                 <Route path="/home" element={<Home />} />
-                <Route path="/card" element={<Card />} />
+                <Route path="/services" element={<ServicesCard />} />
             </Route>
         </Routes>
     )

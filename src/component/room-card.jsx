@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-export default function Card({kategori, harga, gambar, aktif}){
+export default function RoomCard({kategori, harga, gambar, aktif}){
     const [popUp, setPopUp] = useState();
     useEffect(()=>{
         if(aktif){
@@ -42,10 +42,10 @@ export default function Card({kategori, harga, gambar, aktif}){
                 </div>
                 <p className='text-zinc-600'>Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
                 <div className='text-sm md:text-xl flex md:justify-center justify-around items-center py-6'>
-                    <button className='uppercase md:w-[175px] bg-primary-orange text-white text-center py-1 max-md:px-4'>
+                    <button className='uppercase md:w-[175px] bg-primary-orange text-white text-center py-3 max-md:px-5'>
                         <p>view detail</p>
                     </button>
-                    <button className='uppercase md:w-[175px] bg-primary-blue text-white text-center py-1 max-md:px-4'>
+                    <button className='uppercase md:w-[175px] bg-primary-blue text-white text-center py-3 max-md:px-5'>
                         <p>book now</p>
                     </button>
                 </div>
