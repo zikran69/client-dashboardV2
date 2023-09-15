@@ -1,4 +1,4 @@
-export default function subTitle({header, title}){
+export default function ServiceTitle({header, title}){
     return(
         <div className="font-semibold grid justify-center items-center pt-4">
             <div className="flex justify-center items-center text-sm md:text-xl uppercase tracking-wider mb-2">

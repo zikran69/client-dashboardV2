@@ -4,7 +4,7 @@ import { useState } from "react";
 import kategori from '../assets/kategori.json';
 import Services from "../component/service-card";
 import RoomCard from "../component/room-card";
-import SubTitle from "../component/sub-title";
+import SubTitle from '../component/sub-title'
 
 export default function Home(){
 
@@ -88,6 +88,7 @@ export default function Home(){
                 </div>
                 <div id="services">
                 <SubTitle header='our services' title='services' />
+                <Services icon='fa fa-hotel fa-2x text-primary-orange' title='rooms' subTitle='appartment' />
                 </div>
             </div>
         </div>
