@@ -3,7 +3,6 @@ import { useState } from "react";
 
 import kategori from "../assets/kategori.json";
 import Card from "../component/card";
-import MyCarousel from "../component/carousel";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -110,9 +109,6 @@ export default function Home() {
       </div>
 
       {/* bagian content disini  */}
-      <div>
-        <MyCarousel />
-      </div>
 
       <div onClick={popUpOff} className="z-10">
         <div id="rooms" className="pt-24">
