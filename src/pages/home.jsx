@@ -125,9 +125,12 @@ export default function Home() {
           </svg>
         </button>
       </div>
+
       {/* bagian content disini  */}
       <div onClick={popUpOff} className="z-10">
-        <div id="about" className="pt-24">
+        <div
+          id="about"
+          className="pt-24 pl-20 bg-[url('https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-cover">
           <About />
         </div>
         <div id="rooms" className="pt-24">
@@ -147,9 +150,13 @@ export default function Home() {
             })}
           </div>
         </div>
-        <div id="services" className="pt-24">
+
+        {/* bagian service */}
+        <div
+          id="services"
+          className="pt-24 bg-[url('https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-cover">
           <SubTitle header="our services" title="services" />
-          <div className="m-4 pb-4 flex justify-center flex-wrap lg:grid lg:grid-cols-3">
+          <div className="m-2 pb-4 flex justify-center flex-wrap lg:grid lg:grid-cols-3">
             {db_services.map(({ id, title, subTitle, icon }) => {
               return (
                 <div key={id}>
