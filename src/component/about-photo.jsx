@@ -1,16 +1,16 @@
-import lobby from "../assets/lobby-area.json";
+import about from "../assets/about-photo.json";
 export default function AboutPhoto() {
-  const photo = lobby;
+  const photo = about;
   return (
-    <div className="w-fit max-w-[300px]">
-      <div className="flex justify-end">
-        <img src={photo[0].image} className="w-[200px] pr-4" />
+    <div className="xl:w-[500px] pt-2 w-full">
+      <div className="flex justify-start xl:justify-end">
+        <img src={photo[0].image} className="xl:w-[200px] w-[500px]" />
       </div>
-      <div className="py-2">
-        <img src={photo[2].image} className="w-[300px]" />
+      <div className="flex justify-center py-2">
+        <img src={photo[2].image} className="xl:w-[300px] w-[600px]" />
       </div>
-      <div className="flex justify-start pl-4">
-        <img src={photo[1].image} className="w-[200px]" />
+      <div className="flex justify-end xl:justify-start">
+        <img src={photo[1].image} className="xl:w-[200px] w-[400px]" />
       </div>
     </div>
   );
