@@ -13,10 +13,10 @@ export default function AboutProfile() {
         <p className="text-primary-orange font-semibold">MYHOTEL</p>
       </div>
       <div className="font-raleway mt-4">
-        <p>
+        <p className="text-dark font-bold text-lg">
           Temukan kembali, ketenangan. Ini hidupmu.. Nikmati apa yang kamu mau
         </p>
-        <p>
+        <p className="text-dark font-bold text-lg">
           Dunia baru, temukan itu, Pertama, Anda mencintai … kemudian Anda hidup
         </p>
       </div>
