@@ -2,9 +2,8 @@ import AboutTotal from "./about-total";
 import aboutTotal from "../assets/about-total.json";
 
 export default function AboutProfile() {
-  const total = aboutTotal;
   return (
-    <div className="xl:w-[650px] font-roboto pt-2 w-[full] ">
+    <div className="lg:w-[600px] font-roboto pt-2 w-[full]">
       <div className="flex justify-between items-center text-lg w-[250px]">
         <p className="text-primary-orange">ABOUT US</p>
         <div className="h-[2px] w-32 bg-primary-orange"></div>
@@ -13,11 +12,14 @@ export default function AboutProfile() {
         <p className="font-semibold">Welcom to</p>
         <p className="text-primary-orange font-semibold">MYHOTEL</p>
       </div>
-      <p className="font-raleway mt-4">
-        Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam
-        amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit
-        clita duo justo magna dolore erat amet
-      </p>
+      <div className="font-raleway mt-4">
+        <p>
+          Temukan kembali, ketenangan. Ini hidupmu.. Nikmati apa yang kamu mau
+        </p>
+        <p>
+          Dunia baru, temukan itu, Pertama, Anda mencintai … kemudian Anda hidup
+        </p>
+      </div>
       <div className="sm:flex justify-around grid my-4">
         {aboutTotal.map(({ id, title, total, icon }) => {
           return (
