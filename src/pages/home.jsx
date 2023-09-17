@@ -71,46 +71,39 @@ export default function Home() {
           </div>
           <div
             id="menu"
-            className="h-16 w-fit md:w-[500px] uppercase text-white text-xs flex items-center justify-start gap-4 max-md:hidden md:text-sm max-md:absolute max-md:font-raleway left-5 top-20"
-          >
+            className="h-16 w-fit md:w-[500px] uppercase text-white text-xs flex items-center justify-start gap-4 max-md:hidden md:text-sm max-md:absolute max-md:font-raleway left-5 top-20">
             <a
               onClick={popUpOnOff}
-              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2"
-            >
+              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2">
               home
             </a>
             <a
               onClick={popUpOnOff}
               href="#about"
-              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2"
-            >
+              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2">
               about
             </a>
             <a
               onClick={popUpOnOff}
               href="#services"
-              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2"
-            >
+              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2">
               service
             </a>
             <a
               onClick={popUpOnOff}
               href="#rooms"
-              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2"
-            >
+              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2">
               rooms
             </a>
             <a
               onClick={popUpOnOff}
-              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2"
-            >
+              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2">
               pages
             </a>
             <a
               onClick={popUpOnOff}
               href="#footer"
-              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2"
-            >
+              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2">
               contact
             </a>
           </div>
@@ -121,8 +114,7 @@ export default function Home() {
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
-            viewBox="0 0 17 14"
-          >
+            viewBox="0 0 17 14">
             <path
               stroke="currentColor"
               strokeLinecap="round"
@@ -133,9 +125,12 @@ export default function Home() {
           </svg>
         </button>
       </div>
+
       {/* bagian content disini  */}
       <div onClick={popUpOff} className="z-10">
-        <div id="about" className="pt-24">
+        <div
+          id="about"
+          className="pt-24 pl-20 bg-[url('https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-cover">
           <About />
         </div>
         <div id="rooms" className="pt-24">
@@ -155,9 +150,13 @@ export default function Home() {
             })}
           </div>
         </div>
-        <div id="services" className="pt-24">
+
+        {/* bagian service */}
+        <div
+          id="services"
+          className="pt-24 bg-[url('https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-cover">
           <SubTitle header="our services" title="services" />
-          <div className="m-4 pb-4 flex justify-center flex-wrap lg:grid lg:grid-cols-3">
+          <div className="m-2 pb-4 flex justify-center flex-wrap lg:grid lg:grid-cols-3">
             {db_services.map(({ id, title, subTitle, icon }) => {
               return (
                 <div key={id}>
