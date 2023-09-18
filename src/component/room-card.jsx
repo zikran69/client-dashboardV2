@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function RoomCard({ kategori, harga, gambar, aktif }) {
+export default function RoomCard({ kategori, harga, image, aktif }) {
   const [popUp, setPopUp] = useState();
   useEffect(() => {
     if (aktif) {
@@ -16,7 +16,7 @@ export default function RoomCard({ kategori, harga, gambar, aktif }) {
 
   return (
     <div className={popUp}>
-      <img src={gambar} className="h-[250px] w-[350px]" />
+      <img src={image} className="h-[250px] w-[350px]" />
       <div className="bg-primary-orange w-fit mt-[-12px] ml-4 px-4 text-center text-lg text-white absolute">
         ${harga}/night
       </div>

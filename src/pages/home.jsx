@@ -1,7 +1,11 @@
 import { useState } from "react";
+import { useContext } from "react";
+import { global } from "./context";
 
 import About from "../component/about";
+
 import kategori from "../assets/kategori.json";
+
 import services from "../assets/services.json";
 
 import RoomCard from "../component/room-card";
@@ -9,6 +13,7 @@ import ServiceCard from "../component/service-card";
 import SubTitle from "../component/sub-title";
 
 export default function Home() {
+  const [database, setDatabae] = useState(useContext(global).database);
   const [popUp, setPopup] = useState(
     "bg-primary-blue h-24 w-screen flex justify-between min-w-[340px] fixed top-0 lef-0 z-20"
   );
@@ -35,7 +40,7 @@ export default function Home() {
     if (!benar) popUpOnOff();
   };
 
-  const db_kategori = kategori;
+  const db_kategori = database;
   const db_services = services;
 
   return (
@@ -139,13 +144,13 @@ export default function Home() {
         <div id="rooms" className="pt-24">
           <SubTitle header="our rooms" title="rooms" />
           <div className="m-4 pb-4 flex justify-center flex-wrap lg:grid lg:grid-cols-3">
-            {db_kategori.map(({ id, kategori, harga, gambar, aktif }) => {
+            {db_kategori.map(({ id, kategori, harga, image, aktif }) => {
               return (
                 <div key={id}>
                   <RoomCard
                     kategori={kategori}
                     harga={harga}
-                    gambar={gambar}
+                    image={image}
                     aktif={aktif}
                   />
                 </div>
