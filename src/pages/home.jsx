@@ -7,6 +7,7 @@ import About from "../component/about";
 import kategori from "../assets/kategori.json";
 
 import services from "../assets/services.json";
+import Footer from "../component/footer";
 
 import RoomCard from "../component/room-card";
 import ServiceCard from "../component/service-card";
@@ -112,6 +113,7 @@ export default function Home() {
             </a>
             <a
               onClick={popUpOnOff}
+              href="#footer"
               className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2"
             >
               contact
@@ -169,6 +171,9 @@ export default function Home() {
               );
             })}
           </div>
+        </div>
+        <div id="footer" className="pt-24">
+          <Footer />
         </div>
       </div>
     </div>
