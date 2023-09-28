@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <div className="font-raleway text-white bg-primary-blue flex flex-wrap justify-start max-sm:grid">
-      <div className="bg-primary-orange mx-6 w-[300px] h-fit px-4 py-6 rounded-sm mb-4 my-2">
+      <div className="bg-primary-orange mx-6 w-[300px] h-fit px-4 py-6 rounded-sm mb-4 my-2 rounded-lg">
         <p className="text-4xl font-semibold mb-4">MYHOTEL</p>
         <div>
           <p>Temukan kembali, ketenangan</p>
