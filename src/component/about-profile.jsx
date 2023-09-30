@@ -9,13 +9,13 @@ export default function AboutProfile() {
     pt-2
     "
     >
-      <div className="flex justify-between items-center text-lg">
+      <div className="flex justify-between items-center text-lg min-[768px]:text-2xl">
         <p className="text-primary-orange">ABOUT US</p>
-        <div className="h-[2px] w-16 bg-primary-orange"></div>
+        <div className="h-[2px] w-16 bg-primary-orange min-[350px]:hidden"></div>
       </div>
       <div className="">
-        <p className="font-semibold">Welcom to</p>
-        <p className="text-primary-orange font-semibold tracking-widest">
+        <p className="font-semibold min-[768px]:text-xl">Welcom to</p>
+        <p className="text-primary-orange font-semibold tracking-widest min-[768px]:text-2xl">
           MYHOTEL
         </p>
       </div>
@@ -24,6 +24,7 @@ export default function AboutProfile() {
       font-raleway 
       mt-2
       text-xs
+      min-[768px]:text-lg
       "
       >
         <p className="text-dark font-bold">

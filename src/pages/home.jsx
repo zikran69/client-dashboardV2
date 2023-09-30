@@ -10,7 +10,6 @@ import SubTitle from "../component/sub-title";
 
 export default function Home() {
   const database = useContext(global).database;
-  const images = useContext(global).images;
   const [popUp, setPopup] = useState(
     "bg-primary-blue h-24 w-screen flex justify-between min-w-[340px] fixed top-0 z-20"
   );
@@ -73,12 +72,12 @@ export default function Home() {
             id="menu"
             className="h-16 w-fit md:w-[500px] uppercase text-white text-xs flex items-center justify-start gap-4 max-md:hidden md:text-sm max-md:absolute max-md:font-raleway left-5 top-20"
           >
-            <a
+            {/* <a
               onClick={popUpOnOff}
               className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2"
             >
               home
-            </a>
+            </a> */}
             <a
               onClick={popUpOnOff}
               href="#about"
@@ -100,12 +99,12 @@ export default function Home() {
             >
               rooms
             </a>
-            <a
+            {/* <a
               onClick={popUpOnOff}
               className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2"
             >
               pages
-            </a>
+            </a> */}
             <a
               onClick={popUpOnOff}
               href="#footer"
@@ -150,13 +149,13 @@ export default function Home() {
       <div onClick={popUpOff} className="z-10">
         <div
           id="about"
-          className="pt-24 bg-[url('https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-cover w-fit"
+          className="pt-24 bg-[url('https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-cover w-fit min-[500px]:w-full"
         >
           <About />
         </div>
         <div id="rooms" className="pt-24">
           <SubTitle header="our rooms" title="rooms" />
-          <div className="m-4 pb-4 flex justify-center flex-wrap lg:grid lg:grid-cols-3">
+          <div className="m-4 pb-4 flex justify-center flex-wrap">
             {database.map(({ id, kategori, harga, image }) => {
               return (
                 <div key={id}>
@@ -173,12 +172,15 @@ export default function Home() {
           className="pt-24 bg-[url('https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-cover"
         >
           <SubTitle header="our services" title="services" />
-          <div className="m-2 pb-4 flex justify-center flex-wrap lg:grid lg:grid-cols-3">
+          <div className="m-2 pb-4 flex justify-center flex-wrap">
             {db_services.map(({ id, title, subTitle, icon }) => {
               return (
-                <div key={id}>
-                  <ServiceCard title={title} subTitle={subTitle} icon={icon} />
-                </div>
+                <ServiceCard
+                  title={title}
+                  subTitle={subTitle}
+                  icon={icon}
+                  key={id}
+                />
               );
             })}
           </div>

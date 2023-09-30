@@ -30,13 +30,13 @@ export default function ServiceCard({ icon, title, subTitle }) {
         </div>
       </div>
       <div className="flex justify-center">
-        <div className="flex justify-center items-center capitalize font-semibold text-xs">
+        <div className="flex justify-center items-center capitalize font-semibold text-xs min-[375px]:text-lg min-[768px]:text-2xl">
           <span className="tracking-widest">{title}</span>
           <span className="tracking-widest px-3">&</span>
           <span className="tracking-widest">{subTitle}</span>
         </div>
       </div>
-      <p className="font-raleway text-[12px]">
+      <p className="font-raleway text-[12px] min-[768px]:text-[16px]">
         Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam
         stet diam sed stet lorem.
       </p>

@@ -13,9 +13,7 @@ export default function ServiceTitle({ header, title }) {
       text-3xl 
       md:text-4xl
       w-full
-      text-center
-      border border-blue-800
-      "
+      text-center"
       >
         <div>
           <span className="tracking-wider mr-4">Explore</span>
