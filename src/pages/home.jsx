@@ -7,6 +7,7 @@ import Footer from "../component/footer";
 import RoomCard from "../component/room-card";
 import ServiceCard from "../component/service-card";
 import SubTitle from "../component/sub-title";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const database = useContext(global).database;
@@ -112,6 +113,13 @@ export default function Home() {
             >
               contact
             </a>
+            <Link
+              onClick={popUpOnOff}
+              to="/login"
+              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2"
+            >
+              login
+            </Link>
           </div>
         </div>
         <button
