@@ -3,20 +3,33 @@ import aboutTotal from "../assets/about-total.json";
 
 export default function AboutProfile() {
   return (
-    <div className="lg:w-[600px] font-roboto pt-2 w-[full]">
-      <div className="flex justify-between items-center text-lg w-[250px]">
+    <div
+      className="
+    font-roboto 
+    pt-2
+    "
+    >
+      <div className="flex justify-between items-center text-lg">
         <p className="text-primary-orange">ABOUT US</p>
-        <div className="h-[2px] w-32 bg-primary-orange"></div>
+        <div className="h-[2px] w-16 bg-primary-orange"></div>
       </div>
-      <div className="flex lg:grid gap-2 text-4xl mt-2">
+      <div className="">
         <p className="font-semibold">Welcom to</p>
-        <p className="text-primary-orange font-semibold">MYHOTEL</p>
+        <p className="text-primary-orange font-semibold tracking-widest">
+          MYHOTEL
+        </p>
       </div>
-      <div className="font-raleway mt-4">
-        <p className="text-dark font-bold text-lg">
+      <div
+        className="
+      font-raleway 
+      mt-2
+      text-xs
+      "
+      >
+        <p className="text-dark font-bold">
           Temukan kembali, ketenangan. Ini hidupmu.. Nikmati apa yang kamu mau
         </p>
-        <p className="text-dark font-bold text-lg">
+        <p className="text-dark font-bold">
           Dunia baru, temukan itu, Pertama, Anda mencintai … kemudian Anda hidup
         </p>
       </div>

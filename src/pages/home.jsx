@@ -150,22 +150,17 @@ export default function Home() {
       <div onClick={popUpOff} className="z-10">
         <div
           id="about"
-          className="pt-24 pl-20 bg-[url('https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-cover"
+          className="pt-24 bg-[url('https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-cover w-fit"
         >
           <About />
         </div>
         <div id="rooms" className="pt-24">
           <SubTitle header="our rooms" title="rooms" />
           <div className="m-4 pb-4 flex justify-center flex-wrap lg:grid lg:grid-cols-3">
-            {database.map(({ id, kategori, harga, image, aktif }) => {
+            {database.map(({ id, kategori, harga, image }) => {
               return (
                 <div key={id}>
-                  <RoomCard
-                    kategori={kategori}
-                    harga={harga}
-                    image={image}
-                    aktif={aktif}
-                  />
+                  <RoomCard kategori={kategori} harga={harga} image={image} />
                 </div>
               );
             })}
@@ -173,9 +168,10 @@ export default function Home() {
         </div>
 
         {/* bagian service */}
-        {/* <div
+        <div
           id="services"
-          className="pt-24 bg-[url('https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-cover">
+          className="pt-24 bg-[url('https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-cover"
+        >
           <SubTitle header="our services" title="services" />
           <div className="m-2 pb-4 flex justify-center flex-wrap lg:grid lg:grid-cols-3">
             {db_services.map(({ id, title, subTitle, icon }) => {
@@ -189,7 +185,7 @@ export default function Home() {
         </div>
         <div id="footer" className="pt-24">
           <Footer />
-        </div> */}
+        </div>
       </div>
     </div>
   );
