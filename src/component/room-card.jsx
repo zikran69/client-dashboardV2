@@ -1,38 +1,24 @@
-export default function RoomCard({ kategori, harga, image }) {
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
+export default function RoomCard({ kategori, harga, gambar, aktif }) {
+  const [popUp, setPopUp] = useState();
+  useEffect(() => {
+    if (aktif) {
+      setPopUp(
+        "lg:h-[570px] h-[550px] w-[340px] font-raleway border lg:drop-shadow-2xl drop-shadow-xl bg-white m-4"
+      );
+    }
+    if (!aktif)
+      setPopUp(
+        "h-[550px] w-[340px] font-raleway border drop-shadow-xl bg-white m-4"
+      );
+  }, [aktif]);
+
   return (
-    <div
-      className="
-    h-[550px] 
-    min-[640px]:h-[650px]
-    min-[768px]:h-[750px]
-    min-[1024px]:h-[650px]
-    w-[250px] 
-    min-[375px]:w-[350px]
-    min-[640px]:w-[550px]
-    min-[768px]:w-[650px]
-    min-[1024px]:w-[450px]
-    font-raleway 
-    border
-    rounded-t-lg 
-    drop-shadow-xl 
-    bg-white m-4"
-    >
-      <img
-        src={image}
-        className="
-      h-[180px] 
-      min-[375px]:h-[250px]
-      min-[640px]:h-[350px]
-      min-[768px]:h-[400px]
-      min-[1024px]:h-[300px]
-      w-[250px]  
-      min-[375px]:w-[350px]
-      min-[640px]:w-[550px]
-      min-[768px]:w-[650px]
-      min-[1024px]:w-[450px]
-      rounded-lg"
-      />
-      <div className="bg-primary-orange w-fit mt-[-12px] ml-4 px-4 text-center text-lg text-white absolute rounded-lg min-[640px]:text-2xl">
+    <div className={popUp}>
+      <img src={gambar} className="h-[250px] w-[350px] rounded-lg" />
+      <div className="bg-primary-orange w-fit mt-[-12px] ml-4 px-4 text-center text-lg text-white absolute rounded-lg">
         ${harga}/night
       </div>
       <div className="px-4 mt-8">
@@ -68,10 +54,12 @@ export default function RoomCard({ kategori, harga, image }) {
           Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed
           diam stet diam sed stet lorem.
         </p>
-        <div className="text-sm flex justify-around items-center py-6 min-[640px]:text-xl min-[768px]:text-2xl">
-          <button className="uppercase md:w-[175px] bg-primary-orange text-white text-center py-3 max-md:px-5 rounded-lg">
-            <p>view detail</p>
-          </button>
+        <div className="text-sm md:text-xl flex md:justify-center justify-around items-center py-6">
+          <Link to={"/ViewDetail"}>
+            <button className="uppercase md:w-[175px] bg-primary-orange text-white text-center py-3 max-md:px-5 rounded-lg">
+              <p>view detail</p>
+            </button>
+          </Link>
           <button className="uppercase md:w-[175px] bg-primary-blue text-white text-center py-3 max-md:px-5 rounded-lg">
             <p>book now</p>
           </button>
