@@ -23,7 +23,9 @@ export default function RoomCard({ kategori, harga, gambar, aktif }) {
       </div>
       <div className="px-4 mt-8">
         <div className="flex items-center justify-between">
-          <p className="font-roboto text-xl font-semibold">{kategori}</p>
+          <p className="capitalize font-roboto text-xl font-semibold min-[640px]:text-3xl min-[768px]:text-4xl">
+            {kategori}
+          </p>
           <p>
             <small className="fa fa-star text-primary-orange text-lg mr-1"></small>
             <small className="fa fa-star text-primary-orange text-lg mr-1"></small>
@@ -35,20 +37,20 @@ export default function RoomCard({ kategori, harga, gambar, aktif }) {
         <div className="flex justify-between items-center py-4 text-zinc-600">
           <div className="flex justify-center items-center">
             <i className="fa fa-bed text-primary-orange text-lg"></i>
-            <p className="ml-1">3 Bed</p>
+            <p className="ml-2 min-[768px]:text-2xl">3 Bed</p>
           </div>
           |
           <div className="flex justify-between items-center">
-            <i className="fa fa-bath text-primary-orange text-lg"></i>
-            <p className="ml-1">2 Bath</p>
+            <i className="fa fa-bath text-primary-orange text-lg min-[768px]:text-2xl"></i>
+            <p className="ml-2 min-[768px]:text-2xl">2 Bath</p>
           </div>
           |
           <div className="flex justify-between items-center">
             <i className="fa fa-wifi text-primary-orange text-lg"></i>
-            <p className="ml-1">Wifi</p>
+            <p className="ml-2 min-[768px]:text-2xl">Wifi</p>
           </div>
         </div>
-        <p className="text-zinc-600">
+        <p className="text-zinc-600 min-[768px]:text-xl">
           Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed
           diam stet diam sed stet lorem.
         </p>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Header() {
@@ -7,7 +7,7 @@ export default function Header() {
   );
   const [benar, setBenar] = useState(true);
 
-  const klik = (e) => {
+  const klik = () => {
     const menu = document.getElementById("menu");
     menu.classList.toggle("max-md:hidden");
     menu.classList.toggle("max-md:grid");

@@ -6,10 +6,21 @@ export default function ServiceTitle({ header, title }) {
         <span className="text-primary-orange px-4 ">{header}</span>
         <div className="h-[2px] w-8 md:w-16 bg-primary-orange"></div>
       </div>
-      <div className="flex justify-between items-center text-3xl md:text-4xl w-[330px] md:w-[450px]">
-        <span className="tracking-wider">Explore</span>
-        <span className="tracking-wider">Our</span>
-        <span className="text-primary-orange uppercase">{title}</span>
+      <div
+        className="
+      justify-between 
+      items-center
+      text-3xl 
+      md:text-4xl
+      w-full
+      text-center">
+        <div>
+          <span className="tracking-wider mr-4">Explore</span>
+          <span className="tracking-wider">Our</span>
+        </div>
+        <span className="text-primary-orange uppercase tracking-widest">
+          {title}
+        </span>
       </div>
     </div>
   );

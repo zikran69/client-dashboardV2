@@ -3,6 +3,7 @@ import PublicRouter from "./public-router";
 import Home from "../pages/home";
 import Footer from "../component/footer";
 import ViewDetail from "../component/ViewDetail";
+import LoginPage from "../pages/login-page";
 
 export default function Router() {
   return (
@@ -12,6 +13,7 @@ export default function Router() {
         <Route path="/footer" element={<Footer />} />
       </Route>
       <Route path="/ViewDetail" element={<ViewDetail />} />
+      <Route path="/login" element={<LoginPage />} />
     </Routes>
   );
 }
