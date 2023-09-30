@@ -1,19 +1,15 @@
 export default function RoomCard({ kategori, harga, image }) {
-  // const [popUp, setPopUp] = useState();
-  // useEffect(() => {
-  //   if (aktif) {
-  //     setPopUp(
-  //       "lg:h-[570px] h-[550px] w-[340px] font-raleway border lg:drop-shadow-2xl drop-shadow-xl bg-white m-4"
-  //     );
-  //   }
-  //   if (!aktif)
-  //     setPopUp(
-  //       "h-[550px] w-[340px] font-raleway border drop-shadow-xl bg-white m-4"
-  //     );
-  // }, []);
-
   return (
-    <div className="h-[550px] w-[250px] font-raleway border drop-shadow-xl bg-white m-4 border-red-700">
+    <div
+      className="
+    h-[550px] 
+    w-[250px] 
+    font-raleway 
+    border 
+    drop-shadow-xl 
+    bg-white m-4 
+    border-red-700"
+    >
       <img src={image} className="h-[180px] w-[250px] rounded-lg" />
       <div className="bg-primary-orange w-fit mt-[-12px] ml-4 px-4 text-center text-lg text-white absolute rounded-lg">
         ${harga}/night
