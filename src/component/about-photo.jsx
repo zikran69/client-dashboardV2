@@ -1,6 +1,7 @@
-import about from "../assets/about-photo.json";
+import { useContext } from "react";
+import { global } from "../pages/context";
 export default function AboutPhoto() {
-  const photo = about;
+  const photo = useContext(global).images;
   return (
     <div className="lg:w-[450px] pt-2 w-full">
       <div className="flex justify-start xl:justify-end">
