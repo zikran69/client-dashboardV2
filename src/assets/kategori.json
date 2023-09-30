@@ -4,8 +4,8 @@
     "kategori": "Junior Suite",
     "harga": 1000,
     "gambar": "https://hips.hearstapps.com/hmg-prod/images/screen-shot-2019-09-29-at-14-15-30-1569762949.jpg?resize=980:*",
-    "gambar2": "",
-    "gambar3": "",
+    "gambar2": "https://images.pexels.com/photos/1457847/pexels-photo-1457847.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "gambar3": "https://images.pexels.com/photos/8723263/pexels-photo-8723263.jpeg?auto=compress&cs=tinysrgb&w=600",
     "kategori_aktif": false
   },
   {
@@ -13,8 +13,8 @@
     "kategori": "Executive Suite",
     "harga": 2000,
     "gambar": "https://hips.hearstapps.com/hmg-prod/images/will-pryce-tsj-151648-2-fl-double-double-web-1664266781.jpg?crop=1xw:1xh;center,top&resize=980:*",
-    "gambar2": "",
-    "gambar3": "",
+    "gambar2": "https://images.pexels.com/photos/3315291/pexels-photo-3315291.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "gambar3": "https://images.pexels.com/photos/14746032/pexels-photo-14746032.jpeg?auto=compress&cs=tinysrgb&w=600",
     "aktif": true
   },
   {
@@ -22,8 +22,8 @@
     "kategori": "Super Delux",
     "harga": 3000,
     "gambar": "https://hips.hearstapps.com/hmg-prod/images/the-tokyo-edition-toranomon-rooms-high-res-credit-nikolas-koenig20-5-64faf23148f42.jpg?resize=980:*",
-    "gambar2": "",
-    "gambar3": "",
+    "gambar2": "https://images.pexels.com/photos/6198661/pexels-photo-6198661.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "gambar3": "https://images.pexels.com/photos/10611847/pexels-photo-10611847.jpeg?auto=compress&cs=tinysrgb&w=600",
     "aktif": false
   }
 ]

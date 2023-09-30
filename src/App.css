@@ -41,3 +41,27 @@
   color: #888;
 }
 
+/* App.css */
+
+.slick-prev,
+.slick-next {
+  font-size: 20px;
+  color: white;
+  background-color: black;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.slick-prev {
+  left: 10px;
+}
+
+.slick-next {
+  right: 10px;
+}
