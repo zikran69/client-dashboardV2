@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function RoomCard({ kategori, harga, gambar, aktif }) {
   const [popUp, setPopUp] = useState();
@@ -12,7 +13,7 @@ export default function RoomCard({ kategori, harga, gambar, aktif }) {
       setPopUp(
         "h-[550px] w-[340px] font-raleway border drop-shadow-xl bg-white m-4"
       );
-  }, []);
+  }, [aktif]);
 
   return (
     <div className={popUp}>
@@ -52,9 +53,11 @@ export default function RoomCard({ kategori, harga, gambar, aktif }) {
           diam stet diam sed stet lorem.
         </p>
         <div className="text-sm md:text-xl flex md:justify-center justify-around items-center py-6">
-          <button className="uppercase md:w-[175px] bg-primary-orange text-white text-center py-3 max-md:px-5 rounded-lg">
-            <p>view detail</p>
-          </button>
+          <Link to={"/ViewDetail"}>
+            <button className="uppercase md:w-[175px] bg-primary-orange text-white text-center py-3 max-md:px-5 rounded-lg">
+              <p>view detail</p>
+            </button>
+          </Link>
           <button className="uppercase md:w-[175px] bg-primary-blue text-white text-center py-3 max-md:px-5 rounded-lg">
             <p>book now</p>
           </button>

@@ -55,12 +55,10 @@ export default function Header() {
         </div>
         <div
           id="menu"
-          className="h-16 w-fit md:w-[500px] uppercase text-white text-xs flex items-center justify-start gap-3 max-md:hidden md:text-sm max-md:absolute left-5 top-20"
-        >
+          className="h-16 w-fit md:w-[500px] uppercase text-white text-xs flex items-center justify-start gap-3 max-md:hidden md:text-sm max-md:absolute left-5 top-20">
           <Link
-            to=""
-            className="mr-8 hover:text-primary-orange text-primary-orange"
-          >
+            to="/home"
+            className="mr-8 hover:text-primary-orange text-primary-orange">
             home
           </Link>
           <Link to="" className="mr-8 hover:text-primary-orange">
@@ -86,8 +84,7 @@ export default function Header() {
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
-          viewBox="0 0 17 14"
-        >
+          viewBox="0 0 17 14">
           <path
             stroke="currentColor"
             strokeLinecap="round"
