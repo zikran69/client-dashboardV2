@@ -13,6 +13,8 @@ Currently, two official plugins are available:
 
 ## npm init @eslint/config
 
+## npm install js-cookie
+
 ## https://6507a74b3a38daf4803f9ee4.mockapi.io/kamar
 
 ## https://6507a74b3a38daf4803f9ee4.mockapi.io/images
