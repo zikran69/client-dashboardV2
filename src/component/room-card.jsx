@@ -16,12 +16,12 @@ export default function RoomCard({ kategori, harga, image, aktif }) {
 
   return (
     <div className={popUp}>
-      <img src={image} className="h-[250px] w-[350px]" />
-      <div className="bg-primary-orange w-fit mt-[-12px] ml-4 px-4 text-center text-lg text-white absolute">
+      <img src={image} className="h-[250px] w-[350px] rounded-lg" />
+      <div className="bg-primary-orange w-fit mt-[-12px] ml-4 px-4 text-center text-lg text-white absolute rounded-lg">
         ${harga}/night
       </div>
       <div className="px-4 mt-8">
-        <div className="flex items-center justify-between ">
+        <div className="flex items-center justify-between">
           <p className="font-roboto text-xl font-semibold">{kategori}</p>
           <p>
             <small className="fa fa-star text-primary-orange text-lg mr-1"></small>
@@ -52,10 +52,10 @@ export default function RoomCard({ kategori, harga, image, aktif }) {
           diam stet diam sed stet lorem.
         </p>
         <div className="text-sm md:text-xl flex md:justify-center justify-around items-center py-6">
-          <button className="uppercase md:w-[175px] bg-primary-orange text-white text-center py-3 max-md:px-5">
+          <button className="uppercase md:w-[175px] bg-primary-orange text-white text-center py-3 max-md:px-5 rounded-lg">
             <p>view detail</p>
           </button>
-          <button className="uppercase md:w-[175px] bg-primary-blue text-white text-center py-3 max-md:px-5">
+          <button className="uppercase md:w-[175px] bg-primary-blue text-white text-center py-3 max-md:px-5 rounded-lg">
             <p>book now</p>
           </button>
         </div>
