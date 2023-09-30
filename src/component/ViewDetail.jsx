@@ -37,7 +37,7 @@ export default function ViewDetail() {
                     <Slider {...sliderSettings}>
                       <img
                         src={gambar}
-                        className="h-[250px] w-[350px] rounded-lg"
+                        className="h-[250px] w-[350px] rounded-lg items-center"
                       />
                       <img
                         src={gambar2}
