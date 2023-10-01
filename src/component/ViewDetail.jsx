@@ -3,7 +3,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Header from "../file-bahe/header";
 import SubTitle from "../component/sub-title";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import kategori from "../assets/kategori.json";
 import Footer from "../component/footer";
 
@@ -48,9 +48,9 @@ export default function ViewDetail() {
                         className="h-[250px] w-[350px] rounded-lg"
                       />
                     </Slider>
-                    <button className="px-2 py-2  uppercase md:w-[175px] bg-primary-blue text-white text-center max-md:px-2 rounded-lg">
+                    <Link to={`/home/book-now/${itemKategori}`} className="px-2 py-2  uppercase md:w-[175px] bg-primary-blue text-white text-center max-md:px-2 rounded-lg">
                       Booking Now!
-                    </button>
+                    </Link>
                   </div>
                 </>
               );
