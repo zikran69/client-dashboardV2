@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
 export default function RoomCard({ kategori, harga, gambar }) {
-  console.log(gambar, kategori, harga);
   return (
     <>
       <div
@@ -71,16 +70,16 @@ export default function RoomCard({ kategori, harga, gambar }) {
             Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed
             diam stet diam sed stet lorem.
           </p>
-          <div className="text-sm md:text-xl flex md:justify-center justify-around items-center py-6 gap-2">
+          <div className="text-sm md:text-xl flex md:justify-center justify-around items-center py-4 gap-2">
             <Link to={"/ViewDetail"}>
               <button className="uppercase md:w-[175px] bg-primary-orange text-white text-center py-3 max-md:px-5 rounded-lg">
                 <p>view detail</p>
               </button>
             </Link>
-            <Link
-            to={`book-now/${kategori.split(" ").join("-")}`}
-             className="uppercase md:w-[175px] bg-primary-blue text-white text-center py-3 max-md:px-5 rounded-lg">
-              <p>book now</p>
+            <Link to={`book-now/${kategori.split(" ").join("-")}`}>
+              <button className="uppercase md:w-[175px] bg-primary-blue text-white text-center py-3 max-md:px-5 rounded-lg">
+                <p>book now</p>
+              </button>
             </Link>
           </div>
         </div>
