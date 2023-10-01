@@ -77,9 +77,11 @@ export default function RoomCard({ kategori, harga, gambar }) {
                 <p>view detail</p>
               </button>
             </Link>
-            <button className="uppercase md:w-[175px] bg-primary-blue text-white text-center py-3 max-md:px-5 rounded-lg">
+            <Link
+            to={`book-now/${kategori.split(" ").join("-")}`}
+             className="uppercase md:w-[175px] bg-primary-blue text-white text-center py-3 max-md:px-5 rounded-lg">
               <p>book now</p>
-            </button>
+            </Link>
           </div>
         </div>
       </div>
