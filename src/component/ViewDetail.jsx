@@ -3,12 +3,11 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Header from "../file-bahe/header";
 import SubTitle from "../component/sub-title";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import kategori from "../assets/kategori.json";
 import Footer from "../component/footer";
 
 export default function ViewDetail() {
-  // const { kategori } = useParams();
   const db_kategori = kategori;
 
   const sliderSettings = {
@@ -27,13 +26,11 @@ export default function ViewDetail() {
       <div>
         <div className="m-4 pb-4 lg:grid lg:grid-cols-3 sx:grid-rows-3 gap-6 ">
           {db_kategori.map(
-            ({ kategori: itemKategori, gambar, gambar2, gambar3 }) => {
+            ({ kategori: kategori, gambar, gambar2, gambar3 }) => {
               return (
                 <>
-                  <div key={itemKategori} className="m-4 lg:px-6">
-                    <h1 className="font-bold text-center m-4 ">
-                      {itemKategori}
-                    </h1>
+                  <div key={kategori} className="m-4 lg:px-6">
+                    <h1 className="font-bold text-center m-4 ">{kategori}</h1>
                     <Slider {...sliderSettings}>
                       <img
                         src={gambar}
@@ -48,8 +45,10 @@ export default function ViewDetail() {
                         className="h-[250px] w-[350px] rounded-lg"
                       />
                     </Slider>
-                    <Link to={`/home/book-now/${itemKategori}`} className="px-2 py-2  uppercase md:w-[175px] bg-primary-blue text-white text-center max-md:px-2 rounded-lg">
-                      Booking Now!
+                    <Link to={`book-now/${kategori.split(" ").join("-")}`}>
+                      <button className="uppercase md:w-[175px] bg-primary-blue text-white text-center my-2 py-3 max-md:px-5 rounded-lg">
+                        <p>book now</p>
+                      </button>
                     </Link>
                   </div>
                 </>
