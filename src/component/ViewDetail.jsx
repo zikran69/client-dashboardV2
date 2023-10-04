@@ -45,10 +45,13 @@ export default function ViewDetail() {
                         className="h-[250px] w-[350px] rounded-lg"
                       />
                     </Slider>
-                    <Link to={`book-now/${kategori.split(" ").join("-")}`}>
-                      <button className="uppercase md:w-[175px] bg-primary-blue text-white text-center my-2 py-3 max-md:px-5 rounded-lg">
-                        <p>book now</p>
-                      </button>
+
+                    <Link
+                      to={`/ViewDetail/book-now/${kategori
+                        .split(" ")
+                        .join("-")}`}
+                      className="block uppercase w-[175px] bg-primary-blue text-white text-center px-2 mt-4 py-3 max-md:px-2 rounded-lg">
+                      book now!
                     </Link>
                   </div>
                 </>

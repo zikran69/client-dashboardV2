@@ -1,15 +1,24 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 
 const BookNowPage = () => {
-  const Navigate = useNavigate("/home");
+  const Navigate = useNavigate();
   const param = useParams()["*"];
+  const prevPage = window.location.pathname;
+  const goBack = () => {
+    if (prevPage.includes("ViewDetail")) {
+      Navigate(-1);
+    } else {
+      Navigate("/home");
+    }
+  };
+
   return (
     <>
       <div className="bg-primary-blue min-h-screen text-primary-orange p-4">
         <div>
-          <Link to="/home" className="text-xl font-semibold">
+          <button onClick={goBack} className="text-xl font-semibold">
             <i className="fa fa-arrow-left"></i>
-          </Link>
+          </button>
           <h1 className="text-4xl font-semibold">book now</h1>
         </div>
         <form className="mt-4" onSubmit={(e) => e.preventDefault()}>
