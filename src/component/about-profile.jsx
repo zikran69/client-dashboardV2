@@ -8,7 +8,7 @@ export default function AboutProfile() {
     font-roboto 
     pt-2
     ">
-      <div className="">
+      <div data-aos="fade-right" data-aos-duration="1500" data-aos-delay="200">
         <h2 className="font-semibold min-[768px]:text-xl text-white">
           Welcom to
         </h2>
@@ -22,7 +22,10 @@ export default function AboutProfile() {
       mt-2
       text-xs
       min-[768px]:text-lg
-      ">
+      "
+        data-aos="fade-right"
+        data-aos-duration="1500"
+        data-aos-delay="200">
         <h4 className="text-dark font-bold text-white">
           Temukan kembali, ketenangan.
           <mark> Ini hidupmu.. Nikmati apa yang kamu mau</mark>
@@ -32,7 +35,11 @@ export default function AboutProfile() {
           <mark> Pertama, Anda mencintai … kemudian Anda hidup</mark>
         </h4>
       </div>
-      <div className="sm:flex justify-around grid my-4">
+      <div
+        className="sm:flex justify-around grid my-4"
+        data-aos="zoom-in"
+        data-aos-duration="1500"
+        data-aos-delay="200">
         {aboutTotal.map(({ id, title, total, icon }) => {
           return (
             <div key={id} className="mr-2 py-2">

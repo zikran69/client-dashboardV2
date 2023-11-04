@@ -1,6 +1,3 @@
-import { MaterialTailwindTheme } from "@material-tailwind/react";
-import { transformWithEsbuild } from "vite";
-
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
@@ -9,6 +6,7 @@ export default {
       backgroundImage: {
         home: "url('./carousel1.jpg')",
         service: "url('./carousel2.jpg')",
+        login: "url('./bglogin.jpg')",
       },
 
       transitionProperty: {
@@ -16,7 +14,7 @@ export default {
       },
       colors: {
         "primary-blue": "#1181e7",
-        "secondary-blue": "#78aed8",
+        "secondary-blue": "#38bdf8",
         "primary-gray": "#eff3f6",
         "secondary-gray": "#b4b6b9",
         "primary-orange": "#fa9b14",

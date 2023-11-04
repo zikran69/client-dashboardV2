@@ -20,7 +20,11 @@ export default function ServiceCard({ icon, title, subTitle }) {
     duration-500 
     hover:text-white 
     rounded-lg
-    ">
+    "
+      data-aos="flip-left"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="2000"
+      data-aos-delay="200">
       <div className="flex justify-center">
         <div className="border border-solid border-zinc-200 w-fit h-fit p-1 rounded-sm">
           <div className="border border-so w-fit h-fit p-2 rounded-sm bg-white">

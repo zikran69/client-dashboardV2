@@ -1,4 +1,3 @@
-import AboutPhoto from "./about-photo";
 import AboutProfile from "./about-profile";
 
 export default function About() {

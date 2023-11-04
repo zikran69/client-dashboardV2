@@ -2,13 +2,13 @@ import { Link } from "react-router-dom";
 
 export default function RoomCard({ kategori, harga, gambar }) {
   return (
-    <>
+    <div data-aos="fade-up" data-aos-duration="3000" data-aos-delay="200">
       <div
         className="
     h-[550px] 
     min-[640px]:h-[650px]
     min-[768px]:h-[750px]
-    min-[1024px]:h-[650px]
+    min-[1024px]:h-[630px]
     w-[250px] 
     min-[375px]:w-[350px]
     min-[640px]:w-[550px]
@@ -39,7 +39,7 @@ export default function RoomCard({ kategori, harga, gambar }) {
         </div>
         <div className="px-4 mt-8">
           <div className="flex items-center justify-between">
-            <p className="capitalize font-roboto text-xl font-semibold min-[640px]:text-3xl min-[768px]:text-4xl">
+            <p className="capitalize font-roboto text-[20px] lg:text-[25px] font-semibold min-[640px]:text-3xl min-[768px]:text-4xl">
               {kategori}
             </p>
             <p>
@@ -84,6 +84,6 @@ export default function RoomCard({ kategori, harga, gambar }) {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

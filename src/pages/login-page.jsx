@@ -24,7 +24,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen bg-[url('https://images.pexels.com/photos/1021066/pexels-photo-1021066.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-cover">
+    <div className="flex items-center justify-center h-screen bg-login bg-cover">
       <div className="backdrop-blur-sm bg-white/20 p-6 rounded-xl shadow-xl w-[300px] text-sm sm:mx-3">
         <h1 className="text-3xl font-semibold mb-4 text-center font-roboto">
           Log In

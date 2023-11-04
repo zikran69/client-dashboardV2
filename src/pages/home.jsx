@@ -76,39 +76,39 @@ export default function Home() {
             <a
               onClick={popUpOnOff}
               href="#about"
-              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2">
+              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-secondary-blue py-1 px-2 rounded-full">
               about
             </a>
             <a
               onClick={popUpOnOff}
               href="#services"
-              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2">
+              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-secondary-blue py-1 px-2 rounded-full">
               service
             </a>
             <a
               onClick={popUpOnOff}
               href="#rooms"
-              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2">
+              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-secondary-blue py-1 px-2 rounded-full">
               rooms
             </a>
 
             <a
               onClick={popUpOnOff}
               href="#footer"
-              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2">
+              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-secondary-blue py-1 px-2 rounded-full">
               contact
             </a>
             <Link
               onClick={popUpOnOff}
               to="/login"
-              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2">
+              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-secondary-blue py-1 px-2 rounded-full">
               login
             </Link>
             <Link
               onClick={popUpOnOff}
               to="https://dashboard-admin-ver-2-react.vercel.app/"
               target="_blank"
-              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2">
+              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-secondary-blue py-1 px-2 rounded-full">
               Admin
             </Link>
           </div>
@@ -146,7 +146,7 @@ export default function Home() {
       <div onClick={popUpOff} className="z-10">
         <div
           id="about"
-          className="pt-24 bg-home bg-cover w-fit min-[500px]:w-full">
+          className="pt-24 bg-home bg-cover w-fit min-[600px]:w-full lg:h-[600px]">
           <About />
         </div>
         <div id="rooms" className="pt-24">
