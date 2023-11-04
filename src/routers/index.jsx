@@ -5,7 +5,6 @@ import Footer from "../component/footer";
 import ViewDetail from "../component/ViewDetail";
 import LoginPage from "../pages/login-page";
 import BookNowPage from "../pages/BookNowPage";
-import Userpage from "../pages/userpage";
 
 export default function Router() {
   return (
@@ -17,7 +16,6 @@ export default function Router() {
       <Route path="/:source/book-now/*" element={<BookNowPage />} />
       <Route path="/ViewDetail" element={<ViewDetail />} />
       <Route path="/login" element={<LoginPage />} />
-      <Route path="/Userpage" element={<Userpage />} />
     </Routes>
   );
 }

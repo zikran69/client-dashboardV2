@@ -2,21 +2,21 @@ import { Link } from "react-router-dom";
 
 export default function RoomCard({ kategori, harga, gambar }) {
   return (
-    <>
+    <div data-aos="fade-up" data-aos-duration="3000" data-aos-delay="200">
       <div
         className="
     h-[550px] 
     min-[640px]:h-[650px]
     min-[768px]:h-[750px]
-    min-[1024px]:h-[650px]
+    min-[1024px]:h-[630px]
     w-[250px] 
     min-[375px]:w-[350px]
     min-[640px]:w-[550px]
     min-[768px]:w-[650px]
-    min-[1024px]:w-[450px]
+    min-[1024px]:w-[350px]
     font-raleway 
     border
-    rounded-t-lg 
+    rounded-lg 
     drop-shadow-xl 
     bg-white m-4">
         <img
@@ -39,7 +39,7 @@ export default function RoomCard({ kategori, harga, gambar }) {
         </div>
         <div className="px-4 mt-8">
           <div className="flex items-center justify-between">
-            <p className="capitalize font-roboto text-xl font-semibold min-[640px]:text-3xl min-[768px]:text-4xl">
+            <p className="capitalize font-roboto text-[20px] lg:text-[25px] font-semibold min-[640px]:text-3xl min-[768px]:text-4xl">
               {kategori}
             </p>
             <p>
@@ -70,20 +70,20 @@ export default function RoomCard({ kategori, harga, gambar }) {
             Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed
             diam stet diam sed stet lorem.
           </p>
-          <div className="text-sm md:text-xl flex md:justify-center justify-around items-center py-4 gap-2">
+          <div className="flex md:justify-center justify-around items-center py-4 gap-2 font-bold">
             <Link to={"/ViewDetail"}>
-              <button className="uppercase md:w-[175px] bg-primary-orange text-white text-center py-3 max-md:px-5 rounded-lg">
+              <button className="uppercase text-[12px] lg:text-[17px] w-[120px] lg:w-[155px] bg-primary-orange text-white text-center py-3 max-md:px-5 rounded-lg">
                 <p>view detail</p>
               </button>
             </Link>
             <Link to={`/book-now/${kategori.split(" ").join("-")}`}>
-              <button className="uppercase md:w-[175px] bg-primary-blue text-white text-center py-3 max-md:px-5 rounded-lg">
+              <button className="uppercase text-[12px] lg:text-[17px] w-[120px] lg:w-[155px] bg-primary-blue text-white text-center py-3 max-md:px-5 rounded-lg">
                 <p>book now</p>
               </button>
             </Link>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
