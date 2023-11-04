@@ -16,7 +16,7 @@ export default function LoginPage() {
     if (admin.username == username && admin.password == password) {
       const { token } = admin;
       auth.storeAuthCredential(token);
-      return navigate("/Userpage");
+      return navigate("/Homepage");
     } else {
       alert("Username or Password is wrong ...");
       return navigate("/");

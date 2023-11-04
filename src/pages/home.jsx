@@ -1,5 +1,4 @@
-import { useState, useContext } from "react";
-import { global } from "./context";
+import { useState } from "react";
 
 import services from "../assets/services.json";
 import About from "../component/about";
@@ -74,12 +73,6 @@ export default function Home() {
           <div
             id="menu"
             className="h-16 w-fit md:w-[500px] uppercase text-white text-xs flex items-center justify-start gap-4 max-md:hidden md:text-sm max-md:absolute max-md:font-raleway left-5 top-20">
-            {/* <a
-              onClick={popUpOnOff}
-              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2"
-            >
-              home
-            </a> */}
             <a
               onClick={popUpOnOff}
               href="#about"
@@ -98,12 +91,7 @@ export default function Home() {
               className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2">
               rooms
             </a>
-            {/* <a
-              onClick={popUpOnOff}
-              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2"
-            >
-              pages
-            </a> */}
+
             <a
               onClick={popUpOnOff}
               href="#footer"
@@ -115,6 +103,13 @@ export default function Home() {
               to="/login"
               className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2">
               login
+            </Link>
+            <Link
+              onClick={popUpOnOff}
+              to="https://dashboard-admin-ver-2-react.vercel.app/"
+              target="_blank"
+              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2">
+              Admin
             </Link>
           </div>
         </div>
@@ -151,12 +146,12 @@ export default function Home() {
       <div onClick={popUpOff} className="z-10">
         <div
           id="about"
-          className="pt-24 bg-[url('https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-cover w-fit min-[500px]:w-full">
+          className="pt-24 bg-home bg-cover w-fit min-[500px]:w-full">
           <About />
         </div>
         <div id="rooms" className="pt-24">
           <SubTitle header="our rooms" title="rooms" />
-          <div className="m-4 pb-4 flex justify-center flex-wrap">
+          <div className="m-4 pb-4 flex lg:flex-rows justify-center flex-wrap">
             {db_kategori.map(({ id, kategori, harga, gambar }) => {
               return (
                 <div key={id}>
@@ -168,11 +163,9 @@ export default function Home() {
         </div>
 
         {/* bagian service */}
-        <div
-          id="services"
-          className="pt-24 bg-[url('https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-cover">
+        <div id="services" className="pt-24 bg-service bg-cover">
           <SubTitle header="our services" title="services" />
-          <div className="m-2 pb-4 flex justify-center flex-wrap">
+          <div className="m-2 pb-4 flex justify-center flex-wrap ">
             {db_services.map(({ id, title, subTitle, icon }) => {
               return (
                 <ServiceCard

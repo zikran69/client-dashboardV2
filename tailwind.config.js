@@ -6,11 +6,16 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      backgroundImage: {
+        home: "url('./carousel1.jpg')",
+        service: "url('./carousel2.jpg')",
+      },
+
       transitionProperty: {
         display: "display",
       },
       colors: {
-        "primary-blue": "#0f172a",
+        "primary-blue": "#1181e7",
         "secondary-blue": "#78aed8",
         "primary-gray": "#eff3f6",
         "secondary-gray": "#b4b6b9",
