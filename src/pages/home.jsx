@@ -12,7 +12,7 @@ import kategori from "../assets/kategori.json";
 export default function Home() {
   // const database = useContext(global).database;
   const [popUp, setPopup] = useState(
-    "bg-primary-blue h-24 w-screen flex justify-between min-w-[340px] fixed top-0 z-20"
+    "bg-primary-blue h-24 w-screen flex justify-between min-w-[340px] fixed top-0 z-20",
   );
   const [benar, setBenar] = useState(true);
   // benar artinya popUpnya tidak muncul
@@ -22,13 +22,13 @@ export default function Home() {
     menu.classList.toggle("max-md:grid");
     if (benar) {
       setPopup(
-        "bg-primary-blue h-72 md:h-24 w-screen flex justify-between min-w-[340px] fixed top-0 z-20"
+        "bg-primary-blue h-72 md:h-24 w-screen flex justify-between min-w-[340px] fixed top-0 z-20",
       );
       setBenar(false);
     }
     if (!benar) {
       setPopup(
-        "bg-primary-blue h-24 w-screen flex justify-between min-w-[340px] fixed top-0 z-20"
+        "bg-primary-blue h-24 w-screen flex justify-between min-w-[340px] fixed top-0 z-20",
       );
       setBenar(true);
     }
@@ -72,43 +72,50 @@ export default function Home() {
           </div>
           <div
             id="menu"
-            className="h-16 w-fit md:w-[500px] uppercase text-white text-xs flex items-center justify-start gap-4 max-md:hidden md:text-sm max-md:absolute max-md:font-raleway left-5 top-20">
+            className="h-16 w-fit md:w-[500px] uppercase text-white text-xs flex items-center justify-start gap-4 max-md:hidden md:text-sm max-md:absolute max-md:font-raleway left-5 top-20"
+          >
             <a
               onClick={popUpOnOff}
               href="#about"
-              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-secondary-blue py-1 px-2 rounded-full">
+              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-secondary-blue py-1 px-2 rounded-full"
+            >
               about
             </a>
             <a
               onClick={popUpOnOff}
               href="#services"
-              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-secondary-blue py-1 px-2 rounded-full">
+              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-secondary-blue py-1 px-2 rounded-full"
+            >
               service
             </a>
             <a
               onClick={popUpOnOff}
               href="#rooms"
-              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-secondary-blue py-1 px-2 rounded-full">
+              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-secondary-blue py-1 px-2 rounded-full"
+            >
               rooms
             </a>
 
             <a
               onClick={popUpOnOff}
               href="#footer"
-              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-secondary-blue py-1 px-2 rounded-full">
+              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-secondary-blue py-1 px-2 rounded-full"
+            >
               contact
             </a>
             <Link
               onClick={popUpOnOff}
               to="/login"
-              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-secondary-blue py-1 px-2 rounded-full">
+              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-secondary-blue py-1 px-2 rounded-full"
+            >
               login
             </Link>
             <Link
               onClick={popUpOnOff}
               to="https://dashboard-admin-ver-2-react.vercel.app/"
               target="_blank"
-              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-secondary-blue py-1 px-2 rounded-full">
+              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-secondary-blue py-1 px-2 rounded-full"
+            >
               Admin
             </Link>
           </div>
@@ -124,13 +131,15 @@ export default function Home() {
         right-16
         min-[300px]:right-5
         min-[320px]:right-0
-        ">
+        "
+        >
           <svg
             className="w-6 h-6 text-white hover:text-primary-orange"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
-            viewBox="0 0 17 14">
+            viewBox="0 0 17 14"
+          >
             <path
               stroke="currentColor"
               strokeLinecap="round"
@@ -146,7 +155,8 @@ export default function Home() {
       <div onClick={popUpOff} className="z-10">
         <div
           id="about"
-          className="pt-24 bg-home bg-cover w-fit min-[600px]:w-full lg:h-[600px]">
+          className="pt-24 bg-[url('./src/assets/carousel1.jpg')] bg-cover w-fit min-[600px]:w-full lg:h-[600px]"
+        >
           <About />
         </div>
         <div id="rooms" className="pt-24">
@@ -163,7 +173,10 @@ export default function Home() {
         </div>
 
         {/* bagian service */}
-        <div id="services" className="pt-24 bg-service bg-cover">
+        <div
+          id="services"
+          className="pt-24 bg-[url('./src/assets/carousel2.jpg')] bg-cover"
+        >
           <SubTitle header="our services" title="services" />
           <div className="m-2 pb-4 flex justify-center flex-wrap ">
             {db_services.map(({ id, title, subTitle, icon }) => {
