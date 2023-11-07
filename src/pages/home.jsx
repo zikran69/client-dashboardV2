@@ -155,7 +155,7 @@ export default function Home() {
       <div onClick={popUpOff} className="z-10">
         <div
           id="about"
-          className="pt-24 bg-[url('./src/assets/carousel1.jpg')] bg-cover w-fit min-[600px]:w-full lg:h-[600px]"
+          className="pt-24 bg-[url('https://images.pexels.com/photos/1591361/pexels-photo-1591361.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-cover w-fit min-[600px]:w-full lg:h-[600px]"
         >
           <About />
         </div>
@@ -175,7 +175,7 @@ export default function Home() {
         {/* bagian service */}
         <div
           id="services"
-          className="pt-24 bg-[url('./src/assets/carousel2.jpg')] bg-cover"
+          className="pt-24 bg-[url('https://images.pexels.com/photos/261108/pexels-photo-261108.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-cover"
         >
           <SubTitle header="our services" title="services" />
           <div className="m-2 pb-4 flex justify-center flex-wrap ">
