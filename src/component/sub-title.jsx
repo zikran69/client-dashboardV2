@@ -1,6 +1,10 @@
 export default function ServiceTitle({ header, title }) {
   return (
-    <div className="font-semibold grid justify-center items-center pt-4">
+    <div
+      className="font-semibold grid justify-center items-center pt-4"
+      data-aos="zoom-out-down"
+      data-aos-duration="1500"
+      data-aos-delay="200">
       <div className="flex justify-center items-center text-sm md:text-xl uppercase tracking-wider mb-2">
         <div className="h-[2px] w-8 md:w-16 bg-primary-orange"></div>
         <span className="text-primary-orange px-4 ">{header}</span>
