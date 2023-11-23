@@ -8,11 +8,11 @@ import Footer from "../component/footer";
 import { useEffect, useState } from "react";
 
 export default function ViewDetail() {
-  const [categories, setCategories] = useState(null);
+  const [category, setCategory] = useState(null);
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_ADDR_API}/category`)
+    fetch(`${import.meta.env.VITE_ADDR_API}/category/2`)
       .then((res) => res.json())
-      .then(setCategories)
+      .then(setCategory)
       .catch((error) => {
         console.log(error.message);
       });
@@ -33,7 +33,19 @@ export default function ViewDetail() {
       <SubTitle header="our rooms" title="Room Detail" />
       <div>
         <div className="m-4 pb-4 lg:grid lg:grid-cols-3 sx:grid-rows-3 gap-6 ">
-          {categories &&
+          <Slider {...sliderSettings}>
+            <div className="bg-green-200 h-80"></div>
+            <div className="bg-green-400 h-80"></div>
+            <div className="bg-green-600 h-80"></div>
+          </Slider>
+          {category && (
+            <Slider {...sliderSettings}>
+              <div className="bg-yellow-200 h-80"></div>
+              <div className="bg-yellow-400 h-80"></div>
+              <div className="bg-yellow-600 h-80"></div>
+            </Slider>
+          )}
+          {/* {categories &&
             categories.map(({ id, nameCategory, image, image2 }) => {
               return (
                 <>
@@ -42,14 +54,9 @@ export default function ViewDetail() {
                       {nameCategory}
                     </h1>
                     <Slider {...sliderSettings}>
-                      <img
-                        src={`${import.meta.env.VITE_ADDR_API}/${image}`}
-                        className="h-[250px] w-[350px] rounded-lg items-center"
-                      />
-                      <img
-                        src={`${import.meta.env.VITE_ADDR_API}/${image2}`}
-                        className="h-[250px] w-[350px] rounded-lg"
-                      />
+                      <div className="bg-yellow-200 h-80"></div>
+                      <div className="bg-yellow-400 h-80"></div>
+                      <div className="bg-yellow-600 h-80"></div>
                     </Slider>
 
                     <Link
@@ -63,7 +70,7 @@ export default function ViewDetail() {
                   </div>
                 </>
               );
-            })}
+            })} */}
         </div>
       </div>
       <Footer />

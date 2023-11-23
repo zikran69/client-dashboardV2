@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 import services from "../assets/services.json";
 import About from "../component/about";
@@ -46,6 +49,15 @@ export default function Home() {
   };
 
   const db_services = services;
+  const sliderSettings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    prevArrow: <button className="slick-prev"></button>,
+    nextArrow: <button className="slick-next"></button>,
+  };
 
   return (
     <div className="font-roboto h-screen">
@@ -168,22 +180,24 @@ export default function Home() {
         </div>
         <div id="rooms" className="pt-24">
           <SubTitle header="our rooms" title="rooms" />
-          <div className="m-4 pb-4 flex lg:flex-rows justify-center flex-wrap">
-            {categories &&
-              categories.map(
-                ({ id, nameCategory, price, descCategory, image }) => {
-                  return (
-                    <div key={id}>
-                      <RoomCard
-                        nameCategory={nameCategory}
-                        price={price}
-                        descCategory={descCategory}
-                        image={image}
-                      />
-                    </div>
-                  );
-                }
-              )}
+          <div className="m-4 pb-4">
+            <Slider {...sliderSettings}>
+              {categories &&
+                categories.map(
+                  ({ id, nameCategory, price, descCategory, image }) => {
+                    return (
+                      <div key={id} className="ml-5">
+                        <RoomCard
+                          nameCategory={nameCategory}
+                          price={price}
+                          descCategory={descCategory}
+                          image={image}
+                        />
+                      </div>
+                    );
+                  }
+                )}
+            </Slider>
           </div>
         </div>
 
@@ -193,7 +207,7 @@ export default function Home() {
           className="pt-24 bg-[url('https://images.pexels.com/photos/261108/pexels-photo-261108.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-cover"
         >
           <SubTitle header="our services" title="services" />
-          <div className="m-2 pb-4 flex justify-center flex-wrap ">
+          <div className="m-2 pb-4 flex justify-center flex-wrap">
             {db_services.map(({ id, title, subTitle, icon }) => {
               return (
                 <ServiceCard
