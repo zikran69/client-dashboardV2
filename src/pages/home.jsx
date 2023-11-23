@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import services from "../assets/services.json";
 import About from "../component/about";
@@ -7,12 +7,20 @@ import RoomCard from "../component/room-card";
 import ServiceCard from "../component/service-card";
 import SubTitle from "../component/sub-title";
 import { Link } from "react-router-dom";
-import kategori from "../assets/kategori.json";
 
 export default function Home() {
+  const [categories, setCategories] = useState(null);
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_ADDR_API}/category`)
+      .then((res) => res.json())
+      .then(setCategories)
+      .catch((error) => {
+        console.log(error.message);
+      });
+  }, []);
   // const database = useContext(global).database;
   const [popUp, setPopup] = useState(
-    "bg-primary-blue h-24 w-screen flex justify-between min-w-[340px] fixed top-0 z-20",
+    "bg-primary-blue h-24 w-screen flex justify-between min-w-[340px] fixed top-0 z-20"
   );
   const [benar, setBenar] = useState(true);
   // benar artinya popUpnya tidak muncul
@@ -22,13 +30,13 @@ export default function Home() {
     menu.classList.toggle("max-md:grid");
     if (benar) {
       setPopup(
-        "bg-primary-blue h-72 md:h-24 w-screen flex justify-between min-w-[340px] fixed top-0 z-20",
+        "bg-blue-500 h-80 md:h-24 w-screen flex justify-between min-w-[340px] fixed top-0 z-20 rounded-b-sm"
       );
       setBenar(false);
     }
     if (!benar) {
       setPopup(
-        "bg-primary-blue h-24 w-screen flex justify-between min-w-[340px] fixed top-0 z-20",
+        "bg-primary-blue h-24 w-screen flex justify-between min-w-[340px] fixed top-0 z-20"
       );
       setBenar(true);
     }
@@ -37,13 +45,12 @@ export default function Home() {
     if (!benar) popUpOnOff();
   };
 
-  const db_kategori = kategori;
   const db_services = services;
 
   return (
     <div className="font-roboto h-screen">
       <div className={popUp}>
-        <div className="text-2xl font-semibold text-primary-orange w-[25%] min-w-[150px] max-h-24 flex items-center justify-center">
+        <div className="text-2xl lg:text-4xl font-semibold text-primary-orange w-[25%] min-w-[150px] max-h-24 flex items-center justify-center">
           MYHOTEL
         </div>
         <div className="w-[75%] flex-row justify-center items-center">
@@ -72,26 +79,26 @@ export default function Home() {
           </div>
           <div
             id="menu"
-            className="h-16 w-fit md:w-[500px] uppercase text-white text-xs flex items-center justify-start gap-4 max-md:hidden md:text-sm max-md:absolute max-md:font-raleway left-5 top-20"
+            className="h-16 w-fit md:w-[500px] uppercase text-white text-xs flex items-center justify-start gap-4 max-md:hidden md:text-[12px] max-md:absolute max-md:font-raleway left-5 top-20"
           >
             <a
               onClick={popUpOnOff}
               href="#about"
-              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-secondary-blue py-1 px-2 rounded-full"
+              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-white py-1 px-4 rounded-full text-zinc-800"
             >
               about
             </a>
             <a
               onClick={popUpOnOff}
               href="#services"
-              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-secondary-blue py-1 px-2 rounded-full"
+              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-white py-1 px-4 rounded-full text-zinc-800"
             >
               service
             </a>
             <a
               onClick={popUpOnOff}
               href="#rooms"
-              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-secondary-blue py-1 px-2 rounded-full"
+              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-white py-1 px-4 rounded-full text-zinc-800"
             >
               rooms
             </a>
@@ -99,14 +106,14 @@ export default function Home() {
             <a
               onClick={popUpOnOff}
               href="#footer"
-              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-secondary-blue py-1 px-2 rounded-full"
+              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-white py-1 px-4 rounded-full text-zinc-800"
             >
               contact
             </a>
             <Link
               onClick={popUpOnOff}
               to="/login"
-              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-secondary-blue py-1 px-2 rounded-full"
+              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-white py-1 px-4 rounded-full text-zinc-800"
             >
               login
             </Link>
@@ -114,7 +121,7 @@ export default function Home() {
               onClick={popUpOnOff}
               to="https://dashboard-admin-ver-2-react.vercel.app/"
               target="_blank"
-              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-secondary-blue py-1 px-2 rounded-full"
+              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-white py-1 px-4 rounded-full text-zinc-800"
             >
               Admin
             </Link>
@@ -162,13 +169,21 @@ export default function Home() {
         <div id="rooms" className="pt-24">
           <SubTitle header="our rooms" title="rooms" />
           <div className="m-4 pb-4 flex lg:flex-rows justify-center flex-wrap">
-            {db_kategori.map(({ id, kategori, harga, gambar }) => {
-              return (
-                <div key={id}>
-                  <RoomCard kategori={kategori} harga={harga} gambar={gambar} />
-                </div>
-              );
-            })}
+            {categories &&
+              categories.map(
+                ({ id, nameCategory, price, descCategory, image }) => {
+                  return (
+                    <div key={id}>
+                      <RoomCard
+                        nameCategory={nameCategory}
+                        price={price}
+                        descCategory={descCategory}
+                        image={image}
+                      />
+                    </div>
+                  );
+                }
+              )}
           </div>
         </div>
 

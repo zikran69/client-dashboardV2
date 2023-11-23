@@ -15,7 +15,7 @@ export default function ServiceCard({ icon, title, subTitle }) {
     gap-1 
     content-center 
     text-center 
-    text-primary-orange 
+    text-black 
     hover:bg-primary-orange 
     duration-500 
     hover:text-white 
@@ -24,7 +24,8 @@ export default function ServiceCard({ icon, title, subTitle }) {
       data-aos="flip-left"
       data-aos-easing="ease-out-cubic"
       data-aos-duration="2000"
-      data-aos-delay="200">
+      data-aos-delay="200"
+    >
       <div className="flex justify-center">
         <div className="border border-solid border-zinc-200 w-fit h-fit p-1 rounded-sm">
           <div className="border border-so w-fit h-fit p-2 rounded-sm bg-white">

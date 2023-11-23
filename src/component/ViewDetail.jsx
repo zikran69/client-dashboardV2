@@ -1,14 +1,22 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Header from "../file-bahe/header";
+import Header from "./header";
 import SubTitle from "../component/sub-title";
-import { Link } from "react-router-dom";
-import kategori from "../assets/kategori.json";
+import { Link, useSearchParams } from "react-router-dom";
 import Footer from "../component/footer";
+import { useEffect, useState } from "react";
 
 export default function ViewDetail() {
-  const db_kategori = kategori;
+  const [categories, setCategories] = useState(null);
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_ADDR_API}/category`)
+      .then((res) => res.json())
+      .then(setCategories)
+      .catch((error) => {
+        console.log(error.message);
+      });
+  }, []);
 
   const sliderSettings = {
     dots: true,
@@ -25,39 +33,37 @@ export default function ViewDetail() {
       <SubTitle header="our rooms" title="Room Detail" />
       <div>
         <div className="m-4 pb-4 lg:grid lg:grid-cols-3 sx:grid-rows-3 gap-6 ">
-          {db_kategori.map(
-            ({ kategori: kategori, gambar, gambar2, gambar3 }) => {
+          {categories &&
+            categories.map(({ id, nameCategory, image, image2 }) => {
               return (
                 <>
-                  <div key={kategori} className="m-4 lg:px-6">
-                    <h1 className="font-bold text-center m-4 ">{kategori}</h1>
+                  <div key={id} className="m-4 lg:px-6">
+                    <h1 className="font-bold text-center m-4 ">
+                      {nameCategory}
+                    </h1>
                     <Slider {...sliderSettings}>
                       <img
-                        src={gambar}
+                        src={`${import.meta.env.VITE_ADDR_API}/${image}`}
                         className="h-[250px] w-[350px] rounded-lg items-center"
                       />
                       <img
-                        src={gambar2}
-                        className="h-[250px] w-[350px] rounded-lg"
-                      />
-                      <img
-                        src={gambar3}
+                        src={`${import.meta.env.VITE_ADDR_API}/${image2}`}
                         className="h-[250px] w-[350px] rounded-lg"
                       />
                     </Slider>
 
                     <Link
-                      to={`/ViewDetail/book-now/${kategori
+                      to={`/ViewDetail/book-now/${nameCategory
                         .split(" ")
                         .join("-")}`}
-                      className="block uppercase w-[175px] bg-primary-blue text-white text-center px-2 mt-4 py-3 max-md:px-2 rounded-lg">
+                      className="block uppercase w-[175px] bg-primary-blue text-white text-center px-2 mt-4 py-3 max-md:px-2 rounded-lg"
+                    >
                       book now!
                     </Link>
                   </div>
                 </>
               );
-            }
-          )}
+            })}
         </div>
       </div>
       <Footer />
