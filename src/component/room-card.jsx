@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
 
-export default function RoomCard({ nameCategory, price, descCategory, image }) {
+export default function RoomCard({
+  id,
+  nameCategory,
+  price,
+  descCategory,
+  image,
+}) {
   return (
     <div data-aos="fade-up" data-aos-duration="3000" data-aos-delay="200">
       <div
@@ -68,7 +74,7 @@ export default function RoomCard({ nameCategory, price, descCategory, image }) {
           <div className="flex md:justify-center justify-around items-center gap-2 font-bold h-fit pt-2 absolute z-50 bg-white">
             <Link to={"/ViewDetail"}>
               <button className="uppercase text-[12px] lg:text-[17px] w-[120px] lg:w-[155px] bg-primary-orange text-white text-center py-3 max-md:px-5 rounded-lg">
-                <p>view detail</p>
+                <p id={id}>view detail</p>
               </button>
             </Link>
             <Link

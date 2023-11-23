@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { global } from "../context";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
 import services from "../assets/services.json";
 import About from "../component/about";
 import Footer from "../component/footer";
@@ -13,6 +13,8 @@ import { Link } from "react-router-dom";
 
 export default function Home() {
   const [categories, setCategories] = useState(null);
+  const updateDataID = useContext(global).updateDataID;
+  const db_services = services;
   useEffect(() => {
     fetch(`${import.meta.env.VITE_ADDR_API}/category`)
       .then((res) => res.json())
@@ -21,7 +23,7 @@ export default function Home() {
         console.log(error.message);
       });
   }, []);
-  // const database = useContext(global).database;
+
   const [popUp, setPopup] = useState(
     "bg-primary-blue h-24 w-screen flex justify-between min-w-[340px] fixed top-0 z-20"
   );
@@ -47,8 +49,9 @@ export default function Home() {
   const popUpOff = () => {
     if (!benar) popUpOnOff();
   };
-
-  const db_services = services;
+  const updatedId = (e) => {
+    updateDataID(e.target.id);
+  };
   const sliderSettings = {
     dots: true,
     infinite: false,
@@ -91,7 +94,7 @@ export default function Home() {
           </div>
           <div
             id="menu"
-            className="h-16 w-fit md:w-[500px] uppercase text-white text-xs flex items-center justify-start gap-4 max-md:hidden md:text-[12px] max-md:absolute max-md:font-raleway left-5 top-20"
+            className="text-center h-16 w-fit md:w-[500px] uppercase text-white text-xs flex items-center justify-start gap-4 max-md:hidden md:text-[12px] max-md:absolute max-md:font-raleway left-5 top-20"
           >
             <a
               onClick={popUpOnOff}
@@ -122,21 +125,23 @@ export default function Home() {
             >
               contact
             </a>
-            <Link
-              onClick={popUpOnOff}
-              to="/login"
-              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-white py-1 px-4 rounded-full text-zinc-800"
-            >
-              login
-            </Link>
-            <Link
-              onClick={popUpOnOff}
-              to="https://dashboard-admin-ver-2-react.vercel.app/"
-              target="_blank"
-              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-white py-1 px-4 rounded-full text-zinc-800"
-            >
-              Admin
-            </Link>
+            <div className="lg:absolute right-4">
+              <Link
+                onClick={popUpOnOff}
+                to="/login"
+                className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-white py-1 px-4 rounded-full text-zinc-800"
+              >
+                login
+              </Link>
+              <Link
+                onClick={popUpOnOff}
+                // to="https://dashboard-admin-ver-2-react.vercel.app/"
+                target="_blank"
+                className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-white py-1 px-4 rounded-full text-zinc-800"
+              >
+                Register
+              </Link>
+            </div>
           </div>
         </div>
         <button
@@ -180,14 +185,21 @@ export default function Home() {
         </div>
         <div id="rooms" className="pt-24">
           <SubTitle header="our rooms" title="rooms" />
-          <div className="m-4 pb-4">
+          <div className="m-4 pb-4" onClick={updatedId}>
             <Slider {...sliderSettings}>
               {categories &&
                 categories.map(
-                  ({ id, nameCategory, price, descCategory, image }) => {
+                  ({
+                    idCategory,
+                    nameCategory,
+                    price,
+                    descCategory,
+                    image,
+                  }) => {
                     return (
-                      <div key={id} className="ml-5">
+                      <div key={idCategory} className="ml-5">
                         <RoomCard
+                          id={idCategory}
                           nameCategory={nameCategory}
                           price={price}
                           descCategory={descCategory}
