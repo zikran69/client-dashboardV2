@@ -1,14 +1,27 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Header from "../file-bahe/header";
+import { global } from "../context";
+import Header from "./header";
 import SubTitle from "../component/sub-title";
-import { Link } from "react-router-dom";
-import kategori from "../assets/kategori.json";
+import { useNavigate, Link } from "react-router-dom";
 import Footer from "../component/footer";
+import { useEffect, useState, useContext } from "react";
 
 export default function ViewDetail() {
-  const db_kategori = kategori;
+  const [category, setCategory] = useState(null);
+  const navigate = useNavigate();
+  const dataId = useContext(global).dataId;
+  useEffect(() => {
+    if (dataId) {
+      fetch(`${import.meta.env.VITE_ADDR_API}/category/${dataId}`)
+        .then((res) => res.json())
+        .then(setCategory)
+        .catch((error) => {
+          console.log(error.message);
+        });
+    } else navigate("/");
+  }, []);
 
   const sliderSettings = {
     dots: true,
@@ -24,39 +37,48 @@ export default function ViewDetail() {
       <Header />
       <SubTitle header="our rooms" title="Room Detail" />
       <div>
-        <div className="m-4 pb-4 lg:grid lg:grid-cols-3 sx:grid-rows-3 gap-6 ">
-          {db_kategori.map(
-            ({ kategori: kategori, gambar, gambar2, gambar3 }) => {
-              return (
-                <>
-                  <div key={kategori} className="m-4 lg:px-6">
-                    <h1 className="font-bold text-center m-4 ">{kategori}</h1>
-                    <Slider {...sliderSettings}>
-                      <img
-                        src={gambar}
-                        className="h-[250px] w-[350px] rounded-lg items-center"
-                      />
-                      <img
-                        src={gambar2}
-                        className="h-[250px] w-[350px] rounded-lg"
-                      />
-                      <img
-                        src={gambar3}
-                        className="h-[250px] w-[350px] rounded-lg"
-                      />
-                    </Slider>
-
-                    <Link
-                      to={`/ViewDetail/book-now/${kategori
-                        .split(" ")
-                        .join("-")}`}
-                      className="block uppercase w-[175px] bg-primary-blue text-white text-center px-2 mt-4 py-3 max-md:px-2 rounded-lg">
-                      book now!
-                    </Link>
-                  </div>
-                </>
-              );
-            }
+        <div className="m-4 pb-4 lg:grid lg:grid-cols-3 sx:grid-rows-3 gap-6">
+          {category && (
+            <div className="w-screen grid grid-cols-2">
+              <Slider {...sliderSettings} className="w-3/4">
+                <img
+                  className=""
+                  src={`${import.meta.env.VITE_ADDR_API}/${category.image}`}
+                />
+                {category.image2 && (
+                  <img
+                    src={`${import.meta.env.VITE_ADDR_API}/${category.image2}`}
+                  />
+                )}
+              </Slider>
+              <div className="ml-[-120px] text-xl">
+                <div className="uppercase py-4 font-semibold text-2xl">
+                  {category.nameCategory}
+                </div>
+                <div>
+                  Price:{" "}
+                  <span className="text-zinc-600">{category.price} /night</span>
+                </div>
+                <div>
+                  Facility:{" "}
+                  <span className="text-zinc-600">
+                    {category.facilityCategory}
+                  </span>
+                </div>
+                <div>
+                  Description:{" "}
+                  <span className="text-zinc-600">{category.descCategory}</span>
+                </div>
+                <Link
+                  to={`/ViewDetail/book-now/${category.nameCategory
+                    .split(" ")
+                    .join("-")}`}
+                  className="block uppercase w-[175px] bg-primary-blue text-white text-center px-2 mt-4 py-3 max-md:px-2 rounded-lg"
+                >
+                  book now!
+                </Link>
+              </div>
+            </div>
           )}
         </div>
       </div>
