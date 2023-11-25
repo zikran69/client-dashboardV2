@@ -5,7 +5,8 @@ export default function Footer() {
         data-aos="fade-right"
         data-aos-easing="ease-in-sine"
         data-aos-duration="1500"
-        className="bg-primary-orange mx-6 w-auto h-fit px-4 py-6 mb-4 my-2 rounded-lg">
+        className="bg-primary-orange mx-6 w-auto h-fit px-4 py-6 mb-4 my-2 rounded-lg"
+      >
         <p className="text-4xl font-semibold mb-4">MYHOTEL</p>
         <div>
           <p>Temukan kembali, ketenangan</p>
@@ -18,10 +19,11 @@ export default function Footer() {
         className="mx-6 my-2"
         data-aos="fade-up"
         data-aos-duration="1000"
-        data-aos-delay="200">
+        data-aos-delay="200"
+      >
         <div className="flex items-center mb-4">
-          <p className="text-primary-orange mr-4">CONTACT</p>
-          <div className="h-[1px] w-16 bg-primary-orange"></div>
+          <p className="font-semibold text-black mr-4">CONTACT</p>
+          <div className="h-[1px] w-16 bg-black"></div>
         </div>
         <div className="flex items-center mb-2">
           <i className="fa fa-map-marker-alt me-3"></i>
@@ -40,10 +42,11 @@ export default function Footer() {
         className="mx-6 my-2"
         data-aos="fade-up"
         data-aos-duration="2000"
-        data-aos-delay="300">
+        data-aos-delay="300"
+      >
         <div className="flex items-center mb-4">
-          <p className="text-primary-orange mr-4">COMPANY</p>
-          <div className="h-[1px] w-16 bg-primary-orange"></div>
+          <p className="font-semibold text-black mr-4">COMPANY</p>
+          <div className="h-[1px] w-16 bg-black"></div>
         </div>
         <p className="mb-2">
           <a href="#about">About Us</a>
@@ -62,10 +65,11 @@ export default function Footer() {
         className="mx-6 my-2"
         data-aos="fade-up"
         data-aos-duration="3000"
-        data-aos-delay="400">
+        data-aos-delay="400"
+      >
         <div className="flex items-center mb-4">
-          <p className="text-primary-orange mr-4">SERVICES</p>
-          <div className="h-[1px] w-16 bg-primary-orange"></div>
+          <p className="font-semibold text-black mr-4">SERVICES</p>
+          <div className="h-[1px] w-16 bg-black"></div>
         </div>
         <p className="mb-2">Food & Resttaurant</p>
         <p className="mb-2">Spa & Fitness</p>
