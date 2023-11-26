@@ -4,6 +4,7 @@ import Home from "../pages/home";
 import Footer from "../component/footer";
 import ViewDetail from "../component/ViewDetail";
 import LoginPage from "../pages/login-page";
+import BookNowPage from "../pages/BookNowPage";
 
 export default function Router() {
   return (
@@ -12,6 +13,8 @@ export default function Router() {
         <Route path="/home" element={<Home />} />
         <Route path="/footer" element={<Footer />} />
       </Route>
+      {/* <Route path="/book-now/*" element={<BookNowPage />} /> */}
+      <Route path="/:source/book-now/*" element={<BookNowPage />} />
       <Route path="/ViewDetail" element={<ViewDetail />} />
       <Route path="/login" element={<LoginPage />} />
     </Routes>

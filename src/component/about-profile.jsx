@@ -7,17 +7,14 @@ export default function AboutProfile() {
       className="
     font-roboto 
     pt-2
-    "
-    >
-      <div className="flex justify-between items-center text-lg min-[768px]:text-2xl">
-        <p className="text-primary-orange">ABOUT US</p>
-        <div className="h-[2px] w-16 bg-primary-orange min-[350px]:hidden"></div>
-      </div>
-      <div className="">
-        <p className="font-semibold min-[768px]:text-xl">Welcom to</p>
-        <p className="text-primary-orange font-semibold tracking-widest min-[768px]:text-2xl">
-          MYHOTEL
-        </p>
+    ">
+      <div data-aos="fade-right" data-aos-duration="1500" data-aos-delay="200">
+        <h2 className="font-semibold min-[768px]:text-xl text-white">
+          Welcom to
+        </h2>
+        <h2 className="text-primary-orange font-semibold tracking-widest min-[768px]:text-2xl">
+          MY HOTEL
+        </h2>
       </div>
       <div
         className="
@@ -26,15 +23,23 @@ export default function AboutProfile() {
       text-xs
       min-[768px]:text-lg
       "
-      >
-        <p className="text-dark font-bold">
-          Temukan kembali, ketenangan. Ini hidupmu.. Nikmati apa yang kamu mau
-        </p>
-        <p className="text-dark font-bold">
-          Dunia baru, temukan itu, Pertama, Anda mencintai … kemudian Anda hidup
-        </p>
+        data-aos="fade-right"
+        data-aos-duration="1500"
+        data-aos-delay="200">
+        <h4 className="text-dark font-bold text-white">
+          Temukan kembali, ketenangan.
+          <mark> Ini hidupmu.. Nikmati apa yang kamu mau</mark>
+        </h4>
+        <h4 className="text-dark font-bold text-white">
+          Dunia baru, temukan itu,
+          <mark> Pertama, Anda mencintai … kemudian Anda hidup</mark>
+        </h4>
       </div>
-      <div className="sm:flex justify-around grid my-4">
+      <div
+        className="sm:flex justify-around grid my-4"
+        data-aos="zoom-in"
+        data-aos-duration="1500"
+        data-aos-delay="200">
         {aboutTotal.map(({ id, title, total, icon }) => {
           return (
             <div key={id} className="mr-2 py-2">

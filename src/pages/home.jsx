@@ -1,6 +1,8 @@
-import { useState, useContext } from "react";
-import { global } from "./context";
-
+import { useEffect, useState, useContext } from "react";
+import { global } from "../context";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import services from "../assets/services.json";
 import About from "../component/about";
 import Footer from "../component/footer";
@@ -8,10 +10,20 @@ import RoomCard from "../component/room-card";
 import ServiceCard from "../component/service-card";
 import SubTitle from "../component/sub-title";
 import { Link } from "react-router-dom";
-import kategori from "../assets/kategori.json";
 
 export default function Home() {
-  // const database = useContext(global).database;
+  const [categories, setCategories] = useState(null);
+  const updateDataID = useContext(global).updateDataID;
+  const db_services = services;
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_ADDR_API}/category`)
+      .then((res) => res.json())
+      .then(setCategories)
+      .catch((error) => {
+        console.log(error.message);
+      });
+  }, []);
+
   const [popUp, setPopup] = useState(
     "bg-primary-blue h-24 w-screen flex justify-between min-w-[340px] fixed top-0 z-20"
   );
@@ -23,7 +35,7 @@ export default function Home() {
     menu.classList.toggle("max-md:grid");
     if (benar) {
       setPopup(
-        "bg-primary-blue h-72 md:h-24 w-screen flex justify-between min-w-[340px] fixed top-0 z-20"
+        "bg-blue-500 h-80 md:h-24 w-screen flex justify-between min-w-[340px] fixed top-0 z-20 rounded-b-sm"
       );
       setBenar(false);
     }
@@ -37,14 +49,23 @@ export default function Home() {
   const popUpOff = () => {
     if (!benar) popUpOnOff();
   };
-
-  const db_kategori = kategori;
-  const db_services = services;
+  const updatedId = (e) => {
+    updateDataID(e.target.id);
+  };
+  const sliderSettings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    prevArrow: <button className="slick-prev"></button>,
+    nextArrow: <button className="slick-next"></button>,
+  };
 
   return (
     <div className="font-roboto h-screen">
       <div className={popUp}>
-        <div className="text-2xl font-semibold text-primary-orange w-[25%] min-w-[150px] max-h-24 flex items-center justify-center">
+        <div className="text-2xl lg:text-4xl font-semibold text-primary-orange w-[25%] min-w-[150px] max-h-24 flex items-center justify-center">
           MYHOTEL
         </div>
         <div className="w-[75%] flex-row justify-center items-center">
@@ -73,49 +94,54 @@ export default function Home() {
           </div>
           <div
             id="menu"
-            className="h-16 w-fit md:w-[500px] uppercase text-white text-xs flex items-center justify-start gap-4 max-md:hidden md:text-sm max-md:absolute max-md:font-raleway left-5 top-20">
-            {/* <a
-              onClick={popUpOnOff}
-              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2"
-            >
-              home
-            </a> */}
+            className="text-center h-16 w-fit md:w-[500px] uppercase text-white text-xs flex items-center justify-start gap-4 max-md:hidden md:text-[12px] max-md:absolute max-md:font-raleway left-5 top-20"
+          >
             <a
               onClick={popUpOnOff}
               href="#about"
-              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2">
+              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-white py-1 px-4 rounded-full text-zinc-800"
+            >
               about
             </a>
             <a
               onClick={popUpOnOff}
               href="#services"
-              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2">
+              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-white py-1 px-4 rounded-full text-zinc-800"
+            >
               service
             </a>
             <a
               onClick={popUpOnOff}
               href="#rooms"
-              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2">
+              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-white py-1 px-4 rounded-full text-zinc-800"
+            >
               rooms
             </a>
-            {/* <a
-              onClick={popUpOnOff}
-              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2"
-            >
-              pages
-            </a> */}
+
             <a
               onClick={popUpOnOff}
               href="#footer"
-              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2">
+              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-white py-1 px-4 rounded-full text-zinc-800"
+            >
               contact
             </a>
-            <Link
-              onClick={popUpOnOff}
-              to="/login"
-              className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2">
-              login
-            </Link>
+            <div className="lg:absolute right-4">
+              <Link
+                onClick={popUpOnOff}
+                to="/login"
+                className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-white py-1 px-4 rounded-full text-zinc-800"
+              >
+                login
+              </Link>
+              <Link
+                onClick={popUpOnOff}
+                // to="https://dashboard-admin-ver-2-react.vercel.app/"
+                target="_blank"
+                className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-white py-1 px-4 rounded-full text-zinc-800"
+              >
+                Register
+              </Link>
+            </div>
           </div>
         </div>
         <button
@@ -129,13 +155,15 @@ export default function Home() {
         right-16
         min-[300px]:right-5
         min-[320px]:right-0
-        ">
+        "
+        >
           <svg
             className="w-6 h-6 text-white hover:text-primary-orange"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
-            viewBox="0 0 17 14">
+            viewBox="0 0 17 14"
+          >
             <path
               stroke="currentColor"
               strokeLinecap="round"
@@ -151,26 +179,45 @@ export default function Home() {
       <div onClick={popUpOff} className="z-10">
         <div
           id="about"
-          className="pt-24 bg-[url('https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-cover w-fit min-[500px]:w-full">
+          className="pt-24 bg-[url('https://images.pexels.com/photos/1591361/pexels-photo-1591361.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-cover w-fit min-[600px]:w-full lg:h-[600px]"
+        >
           <About />
         </div>
         <div id="rooms" className="pt-24">
           <SubTitle header="our rooms" title="rooms" />
-          <div className="m-4 pb-4 flex justify-center flex-wrap">
-            {db_kategori.map(({ id, kategori, harga, gambar }) => {
-              return (
-                <div key={id}>
-                  <RoomCard kategori={kategori} harga={harga} gambar={gambar} />
-                </div>
-              );
-            })}
+          <div className="m-4 pb-4" onClick={updatedId}>
+            <Slider {...sliderSettings}>
+              {categories &&
+                categories.map(
+                  ({
+                    idCategory,
+                    nameCategory,
+                    price,
+                    descCategory,
+                    image,
+                  }) => {
+                    return (
+                      <div key={idCategory} className="ml-5">
+                        <RoomCard
+                          id={idCategory}
+                          nameCategory={nameCategory}
+                          price={price}
+                          descCategory={descCategory}
+                          image={image}
+                        />
+                      </div>
+                    );
+                  }
+                )}
+            </Slider>
           </div>
         </div>
 
         {/* bagian service */}
         <div
           id="services"
-          className="pt-24 bg-[url('https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-cover">
+          className="pt-24 bg-[url('https://images.pexels.com/photos/261108/pexels-photo-261108.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] bg-cover"
+        >
           <SubTitle header="our services" title="services" />
           <div className="m-2 pb-4 flex justify-center flex-wrap">
             {db_services.map(({ id, title, subTitle, icon }) => {

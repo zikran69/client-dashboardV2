@@ -3,24 +3,28 @@ export default function ServiceCard({ icon, title, subTitle }) {
     <div
       className="
     font-roboto 
-    max-w-[350px] 
+    lg:max-w-[350px] 
     h-[350px] 
     border 
     lg:drop-shadow-2xl 
     drop-shadow-xl  
-    backdrop-sm 
+    backdrop-blur-md bg-white/30 
     m-4 
     px-8 
     grid 
     gap-1 
     content-center 
     text-center 
-    text-primary-orange 
+    text-black 
     hover:bg-primary-orange 
     duration-500 
     hover:text-white 
     rounded-lg
     "
+      data-aos="flip-left"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="2000"
+      data-aos-delay="200"
     >
       <div className="flex justify-center">
         <div className="border border-solid border-zinc-200 w-fit h-fit p-1 rounded-sm">
@@ -30,7 +34,7 @@ export default function ServiceCard({ icon, title, subTitle }) {
         </div>
       </div>
       <div className="flex justify-center">
-        <div className="flex justify-center items-center capitalize font-semibold text-xs min-[375px]:text-lg min-[768px]:text-2xl">
+        <div className="flex justify-center items-center capitalize font-semibold text-[18px] lg:text-[25px]">
           <span className="tracking-widest">{title}</span>
           <span className="tracking-widest px-3">&</span>
           <span className="tracking-widest">{subTitle}</span>
