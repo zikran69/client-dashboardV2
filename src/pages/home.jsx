@@ -18,7 +18,7 @@ export default function Home() {
   useEffect(() => {
     fetch(`${import.meta.env.VITE_ADDR_API}/category`)
       .then((res) => res.json())
-      .then(setCategories)
+      .then(res => setCategories(res.categories))
       .catch((error) => {
         console.log(error.message);
       });
