@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { global } from "../context";
 
 export default function Header() {
+  const statusLogin = useContext(global).login;
+  const updateStatus = useContext(global).updateLogin;
   const [popUp, setPopup] = useState(
     "bg-primary-blue h-24 w-full flex justify-between min-w-[340px]"
   );
@@ -60,12 +63,26 @@ export default function Header() {
           <Link to="/home" className="mr-8 hover:text-primary-orange">
             home
           </Link>
-          <Link to="/" className="mr-8 hover:text-primary-orange">
-            Login
-          </Link>
-          <Link to="/" className="mr-8 hover:text-primary-orange">
-            Register
-          </Link>
+          {statusLogin ? (
+            <button
+              className="uppercase mr-8 hover:text-primary-orange"
+              onClick={() => updateStatus(false)}
+            >
+              sign-out
+            </button>
+          ) : (
+            <div>
+              <button
+                className="uppercase mr-8 hover:text-primary-orange"
+                onClick={() => updateStatus(true)}
+              >
+                sign-in
+              </button>
+              <button className="uppercase mr-8 hover:text-primary-orange">
+                Register
+              </button>
+            </div>
+          )}
         </div>
       </div>
       <button onClick={klik} className="md:hidden mx-12 h-fit py-8">

@@ -16,7 +16,7 @@ export default function ViewDetail() {
     if (dataId) {
       fetch(`${import.meta.env.VITE_ADDR_API}/category/${dataId}`)
         .then((res) => res.json())
-        .then(setCategory)
+        .then((res) => setCategory(res.category))
         .catch((error) => {
           console.log(error.message);
         });
@@ -42,11 +42,12 @@ export default function ViewDetail() {
             <div className="w-screen grid grid-cols-2">
               <Slider {...sliderSettings} className="w-3/4">
                 <img
-                  className=""
+                  className="rounded-sm"
                   src={`${import.meta.env.VITE_ADDR_API}/${category.image}`}
                 />
                 {category.image2 && (
                   <img
+                    className="rounded-sm"
                     src={`${import.meta.env.VITE_ADDR_API}/${category.image2}`}
                   />
                 )}

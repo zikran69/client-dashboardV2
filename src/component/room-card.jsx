@@ -73,7 +73,10 @@ export default function RoomCard({
           </div>
           <div className="flex md:justify-center justify-around items-center gap-2 font-bold h-fit pt-2 absolute z-50 bg-white">
             <Link to={"/ViewDetail"}>
-              <button className="uppercase text-[12px] lg:text-[17px] w-[120px] lg:w-[155px] bg-primary-orange text-white text-center py-3 max-md:px-5 rounded-lg">
+              <button
+                id={id}
+                className="uppercase text-[12px] lg:text-[17px] w-[120px] lg:w-[155px] bg-primary-orange text-white text-center py-3 max-md:px-5 rounded-lg"
+              >
                 <p id={id}>view detail</p>
               </button>
             </Link>
