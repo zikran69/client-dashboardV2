@@ -16,7 +16,7 @@ export default function ViewDetail() {
     if (dataId) {
       fetch(`${import.meta.env.VITE_ADDR_API}/category/${dataId}`)
         .then((res) => res.json())
-        .then(setCategory)
+        .then((res) => setCategory(res.category))
         .catch((error) => {
           console.log(error.message);
         });
