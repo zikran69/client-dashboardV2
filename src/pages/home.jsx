@@ -9,13 +9,16 @@ import Footer from "../component/footer";
 import RoomCard from "../component/room-card";
 import ServiceCard from "../component/service-card";
 import SubTitle from "../component/sub-title";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import auth from "../utils/auth";
 
 export default function Home() {
   const [categories, setCategories] = useState(null);
   const updateDataID = useContext(global).updateDataID;
   const statusLogin = useContext(global).login;
   const updateStatus = useContext(global).updateLogin;
+  const userName = useState(auth.isUserName);
+  const navigate = useNavigate();
 
   const db_services = services;
   useEffect(() => {
@@ -62,6 +65,12 @@ export default function Home() {
     slidesToScroll: 1,
     prevArrow: <button className="slick-prev"></button>,
     nextArrow: <button className="slick-next"></button>,
+  };
+
+  const logout = () => {
+    auth.logout();
+    updateStatus(false);
+    navigate("/");
   };
 
   return (
@@ -130,25 +139,36 @@ export default function Home() {
             {statusLogin ? (
               <div className="lg:absolute right-4">
                 <Link
-                  onClick={() => updateStatus(false)}
-                  to="/"
-                  className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-white py-1 px-4 rounded-full text-zinc-800"
+                  // onClick={() => updateStatus(false)}
+                  // to="/"
+                  // className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-white py-1 px-4 rounded-full text-zinc-800"
+                  className="mr-4 hover:text-primary-orange"
                 >
-                  sign-out
+                  {userName}
                 </Link>
+                <button
+                  onClick={logout}
+                  to="/"
+                  className="mr-8 hover:text-primary-orange"
+                >
+                  <i
+                    title="logout"
+                    className="ri-logout-circle-r-line text-sm"
+                  ></i>
+                </button>
               </div>
             ) : (
               <div className="lg:absolute right-4">
                 <Link
                   onClick={() => updateStatus(true)}
-                  to="/"
+                  to="/login"
                   className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-white py-1 px-4 rounded-full text-zinc-800"
                 >
                   sign-in
                 </Link>
                 <Link
                   onClick={popUpOnOff}
-                  target=""
+                  to="/register"
                   className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-white py-1 px-4 rounded-full text-zinc-800"
                 >
                   Register

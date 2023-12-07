@@ -8,7 +8,15 @@ const auth = {
     return Cookies.set("token", token);
   },
   logout: () => {
-    return Cookies.remove("token");
+    Cookies.remove("token");
+    Cookies.remove("userName");
+    return;
+  },
+  isUserName: () => {
+    return Cookies.get("userName");
+  },
+  storeUserName: (userName) => {
+    return Cookies.set("userName", userName);
   },
 };
 
