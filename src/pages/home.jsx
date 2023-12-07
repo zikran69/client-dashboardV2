@@ -9,16 +9,22 @@ import Footer from "../component/footer";
 import RoomCard from "../component/room-card";
 import ServiceCard from "../component/service-card";
 import SubTitle from "../component/sub-title";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import auth from "../utils/auth";
 
 export default function Home() {
   const [categories, setCategories] = useState(null);
   const updateDataID = useContext(global).updateDataID;
+  const statusLogin = useContext(global).login;
+  const updateStatus = useContext(global).updateLogin;
+  const userName = useState(auth.isUserName);
+  const navigate = useNavigate();
+
   const db_services = services;
   useEffect(() => {
     fetch(`${import.meta.env.VITE_ADDR_API}/category`)
       .then((res) => res.json())
-      .then(setCategories)
+      .then((res) => setCategories(res.categories))
       .catch((error) => {
         console.log(error.message);
       });
@@ -28,14 +34,13 @@ export default function Home() {
     "bg-primary-blue h-24 w-screen flex justify-between min-w-[340px] fixed top-0 z-20"
   );
   const [benar, setBenar] = useState(true);
-  // benar artinya popUpnya tidak muncul
   const popUpOnOff = () => {
     const menu = document.getElementById("menu");
     menu.classList.toggle("max-md:hidden");
     menu.classList.toggle("max-md:grid");
     if (benar) {
       setPopup(
-        "bg-blue-500 h-80 md:h-24 w-screen flex justify-between min-w-[340px] fixed top-0 z-20 rounded-b-sm"
+        "bg-primary-blue h-80 md:h-24 w-screen flex justify-between min-w-[340px] fixed top-0 z-20 rounded-b-sm"
       );
       setBenar(false);
     }
@@ -54,12 +59,20 @@ export default function Home() {
   };
   const sliderSettings = {
     dots: true,
-    infinite: false,
+    infinite: true,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 1500,
     prevArrow: <button className="slick-prev"></button>,
     nextArrow: <button className="slick-next"></button>,
+  };
+
+  const logout = () => {
+    auth.logout();
+    updateStatus(false);
+    navigate("/");
   };
 
   return (
@@ -125,23 +138,45 @@ export default function Home() {
             >
               contact
             </a>
-            <div className="lg:absolute right-4">
-              <Link
-                onClick={popUpOnOff}
-                to="/login"
-                className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-white py-1 px-4 rounded-full text-zinc-800"
-              >
-                login
-              </Link>
-              <Link
-                onClick={popUpOnOff}
-                // to="https://dashboard-admin-ver-2-react.vercel.app/"
-                target="_blank"
-                className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-white py-1 px-4 rounded-full text-zinc-800"
-              >
-                Register
-              </Link>
-            </div>
+            {statusLogin ? (
+              <div className="lg:absolute right-4">
+                <Link
+                  // onClick={() => updateStatus(false)}
+                  // to="/"
+                  // className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-white py-1 px-4 rounded-full text-zinc-800"
+                  className="mr-4 hover:text-primary-orange"
+                >
+                  {userName}
+                </Link>
+                <button
+                  onClick={logout}
+                  to="/"
+                  className="mr-8 hover:text-primary-orange"
+                >
+                  <i
+                    title="logout"
+                    className="ri-logout-circle-r-line text-sm"
+                  ></i>
+                </button>
+              </div>
+            ) : (
+              <div className="lg:absolute right-4">
+                <Link
+                  onClick={() => updateStatus(true)}
+                  to="/login"
+                  className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-white py-1 px-4 rounded-full text-zinc-800"
+                >
+                  sign-in
+                </Link>
+                <Link
+                  onClick={popUpOnOff}
+                  to="/register"
+                  className="mr-8 hover:text-primary-orange hover:text-sm hover:max-md:pl-2 bg-white py-1 px-4 rounded-full text-zinc-800"
+                >
+                  Register
+                </Link>
+              </div>
+            )}
           </div>
         </div>
         <button

@@ -1,4 +1,4 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const BookNowPage = () => {
   const Navigate = useNavigate();
@@ -33,7 +33,8 @@ const BookNowPage = () => {
             />
             <select
               name="lantai"
-              className="outline-none border p-2 rounded-md w-full mt-4">
+              className="outline-none border p-2 rounded-md w-full mt-4"
+            >
               <option>1</option>
               <option>2</option>
             </select>
@@ -52,7 +53,8 @@ const BookNowPage = () => {
             <div>
               <label
                 htmlFor="tanggalCheckIn"
-                className="mt-4 text-lg font-semibold">
+                className="mt-4 text-lg font-semibold"
+              >
                 Tanggal Check In
               </label>
               <input
@@ -72,7 +74,8 @@ const BookNowPage = () => {
             onClick={() => {
               Navigate("/home");
             }}
-            className="bg-primary-orange text-white p-2 rounded-md mt-4">
+            className="bg-primary-orange text-white p-2 rounded-md mt-4"
+          >
             Book Now
           </button>
         </form>
