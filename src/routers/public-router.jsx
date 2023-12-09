@@ -4,7 +4,7 @@ export default function PublicRouter() {
   return (
     <div>
       <Outlet />
-      <Navigate to="/home" />
+      {/* <Navigate to="/home" /> */}
     </div>
   );
 }

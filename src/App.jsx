@@ -11,10 +11,20 @@ function App() {
   }, []);
 
   const [dataID, setDataID] = useState(null);
+  const [login, setLogin] = useState(false);
+  const [userName, setUserName] = useState(null);
   const store = {
     dataId: dataID,
     updateDataID: (value) => {
       setDataID(value);
+    },
+    login: login,
+    updateLogin: (value) => {
+      setLogin(value);
+    },
+    userName: userName,
+    updateUserName: (value) => {
+      setUserName(value);
     },
   };
 

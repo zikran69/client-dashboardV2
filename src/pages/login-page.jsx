@@ -1,31 +1,48 @@
 import { Link, useNavigate } from "react-router-dom";
 import auth from "../utils/auth";
+import { useEffect, useState } from "react";
 
 export default function LoginPage() {
   const navigate = useNavigate();
-  const admin = {
-    username: "user",
-    password: "user",
-    token: "ASKGAS1212assg13j1351asfkhKQEP",
-  };
+  const [customer, setCustomer] = useState(null);
+  const [login, setLogin] = useState(null);
+
+  useEffect(() => {
+    if (login) {
+      fetch(`${import.meta.env.VITE_ADDR_API}/customer/login`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(login),
+      })
+        .then((res) => res.json())
+        .then(setCustomer);
+      if (customer) {
+        if (customer.msgLogin) {
+          alert(customer.msgLogin);
+          auth.storeUserName(customer.data.userName);
+          auth.storeAuthCredential(true);
+          setTimeout(() => {
+            navigate("/");
+          }, 1000);
+        }
+        if (customer.message) alert(customer.message);
+      }
+    }
+  }, [login]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    const { username, password } = Object.fromEntries(formData);
-    if (admin.username == username && admin.password == password) {
-      const { token } = admin;
-      auth.storeAuthCredential(token);
-      return navigate("/Homepage");
-    } else {
-      alert("Username or Password is wrong ...");
-      return navigate("/");
-    }
+    const { userName, paswordCustomer } = Object.fromEntries(formData);
+    setLogin({
+      userName: userName,
+      paswordCustomer: paswordCustomer,
+    });
   };
 
   return (
     <div className="flex items-center justify-center h-screen bg-login bg-cover">
-      <div className="backdrop-blur-sm bg-white/20 p-6 rounded-xl shadow-xl w-[300px] text-sm sm:mx-3">
+      <div className="backdrop-blur-sm bg-blue-100 p-6 rounded-xl shadow-xl w-[300px] text-sm sm:mx-3">
         <h1 className="text-3xl font-semibold mb-4 text-center font-roboto">
           Log In
         </h1>
@@ -35,10 +52,8 @@ export default function LoginPage() {
               Username
             </label>
             <input
-              type="text"
-              id="userName"
-              name="username"
-              placeholder="user"
+              name="userName"
+              placeholder="username"
               className="mt-1 px-4 py-2 w-full border rounded-md focus:ring focus:ring-indigo-300"
             />
           </div>
@@ -48,14 +63,15 @@ export default function LoginPage() {
             </label>
             <input
               type="password"
-              id="passWord"
-              name="password"
+              name="paswordCustomer"
+              placeholder="password"
               className="mt-1 px-4 py-2 w-full border rounded-md focus:ring focus:ring-indigo-300"
             />
           </div>
           <button
             type="submit"
-            className="w-full bg-gradient-to-r from-blue-600 to-green-200 hover:from-green-500 hover:to-yellow-500 text-white py-2 rounded-md ">
+            className="w-full bg-gradient-to-r from-blue-600 to-green-200 hover:from-green-500 hover:to-yellow-500 text-white py-2 rounded-md "
+          >
             Log In
           </button>
           <div className="my-4 text-center">
@@ -63,7 +79,8 @@ export default function LoginPage() {
               Dont have an account?
               <Link
                 to="/register"
-                className="text-primary-blue font-semibold hover:text-pink-400 hover:underline">
+                className="text-primary-blue font-semibold hover:text-pink-400 hover:underline"
+              >
                 {" "}
                 Register
               </Link>
