@@ -1,7 +1,13 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { global } from "../context";
+import auth from "../utils/auth";
 
 export default function Header() {
+  const statusLogin = useContext(global).login;
+  const updateStatus = useContext(global).updateLogin;
+  const userName = useState(auth.isUserName);
+  const navigate = useNavigate();
   const [popUp, setPopup] = useState(
     "bg-primary-blue h-24 w-full flex justify-between min-w-[340px]"
   );
@@ -24,6 +30,11 @@ export default function Header() {
       );
       setBenar(true);
     }
+  };
+  const logout = () => {
+    auth.logout();
+    updateStatus(false);
+    navigate("/");
   };
 
   return (
@@ -57,15 +68,40 @@ export default function Header() {
           id="menu"
           className="h-16 w-fit md:w-[500px] uppercase text-white text-xs flex items-center justify-start gap-3 max-md:hidden md:text-sm max-md:absolute left-5 top-20"
         >
-          <Link to="/home" className="mr-8 hover:text-primary-orange">
+          <Link to="/" className="mr-8 hover:text-primary-orange">
             home
           </Link>
-          <Link to="/" className="mr-8 hover:text-primary-orange">
-            Login
-          </Link>
-          <Link to="/" className="mr-8 hover:text-primary-orange">
-            Register
-          </Link>
+          {statusLogin ? (
+            <div className="absolute right-0">
+              <button className="uppercase mr-8 hover:text-primary-orange">
+                {userName}
+              </button>
+              <button
+                className="uppercase mr-8 hover:text-primary-orange"
+                onClick={logout}
+              >
+                <i
+                  title="logout"
+                  className="ri-logout-circle-r-line text-sm"
+                ></i>
+              </button>
+            </div>
+          ) : (
+            <div>
+              <button
+                className="uppercase mr-8 hover:text-primary-orange"
+                onClick={() => navigate("/login")}
+              >
+                sign-in
+              </button>
+              <button
+                onClick={() => navigate("/register")}
+                className="uppercase mr-8 hover:text-primary-orange"
+              >
+                Register
+              </button>
+            </div>
+          )}
         </div>
       </div>
       <button onClick={klik} className="md:hidden mx-12 h-fit py-8">
